@@ -2,11 +2,36 @@
 <html>
 <head>
 	<title>PREFEITURA</title>
+	 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/>
 </head>
 <body>
-	<ul>
-	<li><a href="">Cadastro Usuarios</a></li>
-	<li><a href="">Cadastro Salas</a></li>		
-	</ul>
+		<nav>
+	    <div class="nav-wrapper">
+	    	<td>
+	         <a href="#" class="brand-logo" > Home Sensor</a>
+	        </td>
+	         <a href="#" data-activates="menu-mobile" class="button-collapse">
+	             <i class="material-icons">menu</i>
+	         </a>
+	         <ul class="right hide-on-med-and-down">
+	         	<?php
+		           echo "<li><a href='#'>Bem-Vindo $logado</a></li>";
+        		?>
+        		<li><a href="grafico.php">Consumo Geral</a></li>
+        		<li><a href="cadastro_sensor_html.php">Cadastro Sensor</a></li>
+	            <li><a href="cadastro_user.html">Cadastro Usuário</a></li>
+	            <li><a href="logout.php">Sair</a></li>
+	         </ul>
+	         <ul class="side-nav" id="menu-mobile">
+	         	<?php
+		           echo "<li><a href='#'>Bem-Vindo $logado</a></li>";
+        		?>
+        		<li><a href="grafico.php">Consumo Geral</a></li>
+        		<li><a href="cadastro_sensor_html.php">Cadastro Sensor</a></li>
+	         	<li><a href="cadastro_user.html">Cadastro Usuário</a></li>
+	            <li><a href="logout.php">Sair</a></li>
+	         </ul>
+	    </div>
+ 	</nav>
 </body>
 </html>
