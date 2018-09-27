@@ -1,0 +1,51 @@
+@import url('../style.css');
+
+#header.page-home {
+    background-color: rgb(173,216,230);
+}
+
+#middle {
+    background-color: rgb(220, 220, 220);
+}
+
+#middle .btn {
+    margin-top: 40px;
+    background-color: rgb(173, 172, 172);
+    color: rgb(87, 87, 87);
+}
+
+#middle .btn:hover {
+    background-color: rgb(87, 87, 87);
+    color: rgb(173, 172, 172);
+}
+
+#middle .btn .material-icons {
+    vertical-align: middle;
+    font-size: 26px;
+}
+
+#middle .container {
+    max-width: 1000px;
+}
+
+#middle .container .up {
+    margin-top: 40px;
+}
+
+#coachs {
+    background-color: rgb(70, 130, 180);
+    color: white;
+}
+
+#coachs h2 {
+    color: white;
+}
+
+#coachs h2:after {
+    background-color: rgb(255, 255, 255);
+}
+
+#coachs .img-box-round {
+    width: 120px;
+    height: 120px;
+}

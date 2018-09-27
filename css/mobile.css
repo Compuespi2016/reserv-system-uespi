@@ -1,0 +1,29 @@
+@media Screen and (max-width: 700px){
+    .col-mobile-1 {
+        width: 16.666666%;
+    }
+    
+    .col-mobile-2 {
+        width: 33.333332%;
+    }
+    
+    .col-mobile-3 {
+        width: 49.999998%;
+    }
+    
+    .col-mobile-4 {
+        width: 66.666664%;
+    }
+    
+    .col-mobile-5 {
+        width: 83.33333%;
+    }
+    
+    .col-mobile-6  {
+        width: 100%;
+    }
+
+    #header, #header nav {
+        text-align: center;
+    }
+}

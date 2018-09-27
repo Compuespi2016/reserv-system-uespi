@@ -1,0 +1,5 @@
+@import url('../style.css');
+
+#header.page-colaboradores {
+    background-image: url("../../images/bg.jpg");
+}

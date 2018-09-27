@@ -1,0 +1,43 @@
+@import url('../style.css');
+
+#header.page-quem-somos {
+    background-image: url("../../images/bg.jpg");
+}
+
+#intro img {
+    padding-top: 60px;
+}
+#intro h2, #tripe h2 {
+    font-size: 20px;
+}
+
+#intro h2 {
+    text-align: left;
+}
+
+#intro h2::after {
+    margin: 5px 0 0 0;
+}
+
+#tripe {
+    background-color: #f3f0e7;
+}
+
+#tripe h2 {
+    margin-top: 20px;
+}
+
+#tripe h2::after {
+    display: none;
+}
+
+#img-box {
+    max-width: 100%;
+    height: auto;
+}
+
+@media(max-widht: 700px) {
+    #img-box {
+        text-align: center;
+    }
+}

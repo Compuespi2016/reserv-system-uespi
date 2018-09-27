@@ -22,8 +22,8 @@
 		echo "<li><a href='#'>Bem-Vindo</a></li>";
     ?>
 	<ul>
-		<li><a href="cadastro_setor.html">Cadastro Setor</a></li>
-		<li><a href="#">Cadastro Sala</a></li>
+		<li><a href="cadastro_setor.html.php">Cadastro Setor</a></li>
+		<li><a href="sala.html.php">Cadastro Sala</a></li>
 		
 	</ul>
 </body>

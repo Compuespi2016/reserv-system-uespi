@@ -1,0 +1,25 @@
+.btn {   
+    background-color: rgb(70,130,180);  
+    color: rgb(39,64,139);   
+    display: inline-block; 
+    font-size: 25px;
+    border-radius: 30px;
+    padding: 5px 30px;
+    transition: ease .5s all;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgba(70,130,180,0.7);
+}
+
+.btn.blue {
+    background-color: rgb(154, 158, 168);
+    color: white;
+}
+
+.btn.blue:hover {
+    background-color: rgb(37, 35, 35);
+    color: white;
+}
