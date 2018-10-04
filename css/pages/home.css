@@ -5,7 +5,7 @@
 }
 
 #middle {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(211, 211, 211);
 }
 
 #middle .btn {
@@ -33,17 +33,18 @@
 }
 
 #coachs {
-    background-color: rgb(70, 130, 180);
-    color: white;
+    background-color: rgb(220,220,220);
+    /*color: white;
 }
 
-#coachs h2 {
+/*#coachs h2 {
     color: white;
 }
 
 #coachs h2:after {
     background-color: rgb(255, 255, 255);
 }
+*/
 
 #coachs .img-box-round {
     width: 120px;
