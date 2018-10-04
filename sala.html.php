@@ -23,18 +23,13 @@
 						
 							echo "<td>Num Sala:</td>";
 
-							echo "<td>Tipo Sala:</td>";
-
-							echo "<td>Num Cadeiras:</td>";
-
-							
-							echo "<td>Tam m²:</td>";
+							echo "<td>Tipo:</td>";
 							
 							echo "<td>Ar-Cond:</td>";
 							
-							echo "<td>Dat.Inicio</td>";
+							echo "<td>Projetor:</td>";
 							
-							echo "<td>Dat.Fim:</td></tr>"; 
+							echo "<td>Capacidade:</td></tr>";
 
 
 						while($fetch = mysqli_fetch_assoc($check)){
@@ -46,28 +41,48 @@
 							echo "<td>$id_setor</td>";
 
 							$numero_sala_no_setor = $fetch['numero_sala_no_setor'];
-							echo "<td>$numero_sala_no_setor</td>";
+							echo "<td>$id_setor</td>";
 
-							$tipo_de_sala = $fetch['tipo_de_sala'];
-							echo "<td>$tipo_de_sala</td>";
+							
+							
 
-							$num_cadeiras =$fetch['num_cadeiras'];
-							echo "<td>$num_cadeiras</td>";
+							$tipo_de_sala =$fetch['tipo_de_sala'];
 
-							$tamanho_mquadrado=$fetch['tamanho_mquadrado'];
-							echo "<td>$tamanho_mquadrado</td>";
+							if($tipo_de_sala == 1){
 
-							$ar_condicionado=$fetch['ar_condicionado'];
-							if($ar_condicionado == 1){
-								echo "<td>Sim</td>";
+								echo "<td>Aula</td>";
+
+							}else if($tipo_de_sala == 2){
+
+								echo "<td>Laboratorio</td>";
+
+							}else if($tipo_de_sala == 3){
+
+								echo "<td>Auditorio</td>";
+
+							}else{
+
 							}
 							
 
-							$data_reserva_inicio=$fetch['data_reserva_inicio'];
-							echo "<td>$data_reserva_inicio</td>";
+							$ar_condicionado = $fetch['ar_condicionado'];
+							if($ar_condicionado == 1){
+								echo "<td>Sim</td>";
+							}else{
+								echo "<td>Não</td>";
+							}
 
-							$data_reserva_fim=$fetch['data_reserva_fim'];
-							echo "<td>$data_reserva_fim</td></tr>"; 
+							$projetor=$fetch['projetor'];
+
+							if($projetor == 1){
+								echo "<td>Sim</td>";
+							}else{
+								echo "<td>Não</td>";
+							}
+							
+
+							$capacidade =$fetch['capacidade'];
+							echo "<td>$capacidade</td>";
 					
 						}
 					}
@@ -80,14 +95,12 @@
 			<h1>Cadastro de Sala</h1>
 
 			<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
-				<input type="int" name="setor" placeholder="Setor">
+				<input type="int" name="setor" placeholder="setor">
 				<input type="int" name="numero_sala_no_setor" placeholder="numero_sala_no_setor">
 				<input type="int" name="tipo_de_sala" placeholder="tipo sala">
-				<input type="int" name="num_cadeiras" placeholder="num_cadeiras">
-				<input type="int" name="tamanho_mquadrado" placeholder="tamanho_mquadrado">
+				<input type="int" name="capacidade" placeholder="capacidade">
 				<input type="int" name="ar_condicionado" placeholder="ar_condicionado">
-				<input type="int" name="data_reserva_inicio" placeholder="data_reserva_inicio">
-				<input type="int" name="data_reserva_fim" placeholder="data_reserva_fim">
+				<input type="int" name="projetor" placeholder="projetor">
 				<button>Cadastrar</button>
 			</form>
 
