@@ -23,10 +23,9 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="#" class="active">Usuário</a></li>
-							<li><a href="#">Opção 1</a></li>
-							<li><a href="#">Opção 2</a></li>
-							<li><a href="#">Opção 3</a></li>
+							<li><a href="pag_prefeitura.php">Prefeitura</a></li>
+							<li><a href="cadastro_setor.html.php">Cadastrar Setor</a></li>
+							<li><a href="sala.html.php" class="active">Cadastrar Sala</a></li>
 						</ul>
 					</nav>
 				</div>
