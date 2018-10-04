@@ -26,10 +26,8 @@
                         unset ($_SESSION['login']);
                         unset ($_SESSION['senha']);
                         header('location:login.html');   
-
                     }
                     $logado = $_SESSION['nome'];
-
                     ?>
 
                 
@@ -37,7 +35,7 @@
                     <nav>
                         <ul>
                             <?php
-                           echo "<li><a href='#' > $logado </a></li>" 
+                           echo "<li><a href='pag_diretor.html.php'> $logado </a></li>" 
                             ?>
                             <li><a href="cadastro_notebooks.html.php">Cadastro Notebook</a></li>
                             <li><a href="#">Cadastro Data-Show</a></li>
@@ -52,7 +50,6 @@
                 <div class="col col-12 title">
                     <h1>Tabela de Itens</h1>
                 </div>
-
             </div>
             -->
         </div>    
@@ -70,13 +67,11 @@
 
     <!--
     <footer id="footer">
-
         <div class="container">
             <div class="row">
                 <div class="col col-offset-desktop-1 col-4 col-mobile-6">
                    
                 </div>
-
                 <div class="col col-offset-desktop-1 col-3 col-mobile-2">
                     <h3>Menu</h3>
                     <nav>
@@ -88,10 +83,8 @@
                         </ul>           
                     </nav>
                 </div>
-
             </div>
         </div>
-
     </footer>
     -->
 
