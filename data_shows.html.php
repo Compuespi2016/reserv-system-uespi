@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col col-4 col-mobile-6">
-					<a href="index.html">
+					<a href="index.html.php">
 						<h3><img src="./imagens/uespi2.png"></h3>
 					</a>
 				</div>
@@ -59,7 +59,6 @@
 						echo "<tr><td>Marca:</td>";
 						echo "<td>Entrada do cabo:</td>";
 						echo "<td>Lumens:</td>";
-
 						while($fetch = mysqli_fetch_assoc($check)){
 							$marca = $fetch['marca'];
 							echo "<tr><td>$marca</td>";
@@ -67,7 +66,6 @@
 							echo "<td>$entercabo</td>";
 							$lumens = $fetch['lumens'];
 							echo "<td>$lumens</td>";
-
 						}
 					}
 					?>

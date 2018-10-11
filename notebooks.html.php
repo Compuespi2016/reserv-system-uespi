@@ -15,7 +15,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col col-4 col-mobile-6">
-					<a href="index.html">
+					<a href="
+					index.html.php">
 						<h3><img src="./imagens/uespi2.png"></h3>
 					</a>
 				</div>
@@ -23,7 +24,7 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="#" class="active">Usuário</a></li>
+							<li><a href="pag_diretor.html.php" class="active">Usuário</a></li>
 							<li><a href="#">Opção 1</a></li>
 							<li><a href="#">Opção 2</a></li>
 							<li><a href="#">Opção 3</a></li>
@@ -45,6 +46,8 @@
 <main>
 	<section class="section section-center">
 		<div class="container">
+			<div class="row">
+
 			<h2>NOTEBOOKS</h2>
 			<div class="col col-2"></div>
 			<div class="col col-8">
@@ -76,17 +79,18 @@
 				</table>
 			</div>
 			<div class="col col-2"></div>
+			</div>
 		</div>
 	</section>
 
-	<br>
+	
 
 	<section class="section section-center">
 		
 
 		<h1>Cadastro de Notebooks</h1>
 		<div class = "container">
-
+			<div class="row">
 			<form method="POST" action="cadastro_notebooks.php" enctype="multipart/form-data">
 				<input type="text" name="marca" placeholder="Marca">
 				<input type="text" name="modelo" placeholder="Modelo">
@@ -96,6 +100,7 @@
 					<input type="submit" name="Cadastrar" value="Cadastrar">
 				</div>
 			</form>
+			</div>
 
 		</div>
 	</section>
