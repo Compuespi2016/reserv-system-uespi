@@ -7,6 +7,7 @@
 	<title>Sistema de reservas - Cadastro de Salas</title>
 	<link rel="stylesheet" href="css/pages/home.css">
 	<link rel="stylesheet" media="Screen and (max-width: 700px)" href="css/mobile.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 
 </head>
@@ -15,7 +16,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col col-4 col-mobile-6">
-					<a href="index.html.php">
+					<a href="index.html">
 						<h3><img src="./imagens/uespi2.png"></h3>
 					</a>
 				</div>
@@ -62,7 +63,8 @@
 						echo "<td>Tipo:</td>";
 						echo "<td>Ar-Cond:</td>";
 						echo "<td>Projetor:</td>";
-						echo "<td>Capacidade:</td></tr>";
+						echo "<td>Capacidade:</td>";
+						echo "<td>Situação:</td></tr>";
 						while($fetch = mysqli_fetch_assoc($check)){
 							$id_sala = $fetch['id'];
 							echo "<tr><td>$id_sala</td>";
@@ -91,8 +93,14 @@
 							}else{
 								echo "<td>Não</td>";
 							}
+
 							$capacidade =$fetch['capacidade'];
 							echo "<td>$capacidade</td>";
+							
+							$id = $fetch['id'];
+							echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
+						  		<i class='material-icons center'>DELETE</i>
+							</button></td>";
 						}
 					}
 					?>
@@ -122,7 +130,8 @@
 					<input type="submit" name="Cadastrar" value="Cadastrar">
 				</div>
 			</form>
-		</div>	
+
+		</div>
 		</div>
 	</section>
 </main>
@@ -154,6 +163,13 @@
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
+<script type="text/javascript">
+	function fun_del(value) {
+		$.post("delete_sala.php", { id: value });
+		alert("Sala  Excluido com Sucesso");
+		window.location.href='sala.html.php';
+ 	}
 
+</script>
 </body>
 </html>

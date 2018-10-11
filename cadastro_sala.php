@@ -14,7 +14,7 @@ $projetor=$_POST['projetor'];
 
 include('conexao.php');
         	   
-  $insert = mysqli_query($con,"INSERT INTO salas(setor,numero_sala_no_setor,tipo_de_sala,capacidade,ar_condicionado,projetor) VALUES('$id_setor' ,'$numero_sala_no_setor','$tipo_de_sala','$capacidade','$ar_condicionado','$projetor')"); 
+  $insert = mysqli_query($con,"INSERT INTO salas(setor,numero_sala_no_setor,tipo_de_sala,capacidade,ar_condicionado,projetor) VALUES($id_setor ,$numero_sala_no_setor,$tipo_de_sala,$capacidade,$ar_condicionado,$projetor)"); 
 
   if($insert){
 
