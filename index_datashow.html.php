@@ -23,8 +23,6 @@
                         <ul>
                             <li><a href="index.html.php" class="active">Home</a></li>
                             <li><a href="login.html">Login</a></li>
-                            <li><a href="#">Menu Item</a></li>
-                            <li><a href="#">Menu Item</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -55,7 +53,7 @@
                             <option value="index_salas.html.php">Salas</option>
                             <option value="index_notebooks.html.php">Notebooks</option>
                             <option value="index_datashow.html.php">Datashow</option>
-                            <option value="index_diversos.html.php">Diversos</option>
+                            <option value="#">Diversos</option>
                         </select>  
 
                         <script type="text/javascript">
@@ -79,6 +77,8 @@
                         echo "<tr><td>Marca:</td>";
                         echo "<td>Entrada do cabo:</td>";
                         echo "<td>Lumens:</td>";
+                        echo "<td>Estado:</td>";
+
                         while($fetch = mysqli_fetch_assoc($check)){
                             $marca = $fetch['marca'];
                             echo "<tr><td>$marca</td>";
@@ -86,17 +86,15 @@
                             echo "<td>$entercabo</td>";
                             $lumens = $fetch['lumens'];
                             echo "<td>$lumens</td>";
-                            $reservado = $fetch['data_show_estad'];
+                            $reservado = $fetch['data_show_estado'];
                             if($reservado==0){
-                                echo "<td>'reservado'</td>";
+                                echo "<td>reservado</td>";
                             }else{
-                                echo "<td>'disponivel'</td>";
+                                echo "<td>indisponivel</td>";
                             }
                         }
-                            echo "<td>$reservado</td>";
-                            $lumens = $fetch['lumens'];
-                            echo "<td>$lumens</td>";
-                        }
+
+                    }
                     
                     ?>
                     </table>                    
@@ -111,24 +109,7 @@
 <footer id="footer">
 
     <div class="container">
-        <div class="row">
-            <div class="col col-offset-desktop-1 col-4 col-mobile-6">
-                <p>Aenean sollicitudin, lorem quis bibendum. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor</p>
-            </div>
 
-            <div class="col col-offset-desktop-1 col-3 col-mobile-2">
-                <h3>Menu</h3>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="#">Membros</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>           
-                </nav>
-            </div>
-
-        </div>
     </div>
 
 </footer>

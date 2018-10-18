@@ -23,8 +23,7 @@
                         <ul>
                             <li><a href="index.html.php" class="active">Home</a></li>
                             <li><a href="login.html">Login</a></li>
-                            <li><a href="#">Menu Item</a></li>
-                            <li><a href="#">Menu Item</a></li>
+
                         </ul>
                     </nav>
                 </div>
@@ -55,7 +54,7 @@
                             <option value="index_salas.html.php">Salas</option>
                             <option value="index_notebooks.html.php">Notebooks</option>
                             <option value="index_datashow.html.php">Datashow</option>
-                            <option value="index_diversos.html.php">Diversos</option>
+                            <option value="#">Diversos</option>
                         </select>  
 
                         <script type="text/javascript">
@@ -82,7 +81,8 @@
                             echo "<td>Tipo:</td>";
                             echo "<td>Ar-Cond:</td>";
                             echo "<td>Projetor:</td>";
-                            echo "<td>Capacidade:</td></tr>";
+                            echo "<td>Capacidade:</td>";
+                            echo "<td>Estado:</td></tr>";
                             while($fetch = mysqli_fetch_assoc($check)){
                                 $id_sala = $fetch['id'];
                                 echo "<tr><td>$id_sala</td>";
@@ -98,6 +98,7 @@
                                 }else if($tipo_de_sala == 3){
                                     echo "<td>Auditorio</td>";
                                 }else{
+                                    echo "<td>Nao definido </td>";
                                 }
                                 $ar_condicionado = $fetch['ar_condicionado'];
                                 if($ar_condicionado == 1){
@@ -113,6 +114,12 @@
                                 }
                                 $capacidade =$fetch['capacidade'];
                                 echo "<td>$capacidade</td>";
+                                $estado=$fetch['estado'];
+                                if($estado == 0){
+                                    echo "<td>reservado</td>";
+                                }else{
+                                    echo "<td>indisponivel</td>";
+                                }
                             }
                         }
                         ?>
@@ -128,24 +135,7 @@
 <footer id="footer">
 
     <div class="container">
-        <div class="row">
-            <div class="col col-offset-desktop-1 col-4 col-mobile-6">
-                <p>Aenean sollicitudin, lorem quis bibendum. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor</p>
-            </div>
 
-            <div class="col col-offset-desktop-1 col-3 col-mobile-2">
-                <h3>Menu</h3>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="#">Membros</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>           
-                </nav>
-            </div>
-
-        </div>
     </div>
 
 </footer>
