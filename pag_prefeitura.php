@@ -57,15 +57,6 @@
 		<div class="container">
 			<h2>Prefeitura UESPI</h2>
 			<p>Seja bem-vindo ao Sistema de cadastro de Materiais e Salas da UESPI</p>
-
-			<div class="row">
-				<div class="col col-6"> 
-					<h4>Setores</h4>
-				</div>
-				<div class="col col-6">
-					<h4>Salas</h4>
-				</div>
-			</div>
 		</div>
 	</section>
 </main>
