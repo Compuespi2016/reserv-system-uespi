@@ -70,6 +70,7 @@
 									}else if($tipo_de_sala == 3){
 										echo "<td>Auditorio</td>";
 									}else{
+										echo "<td>Nao definido </td>";
 									}
 									$ar_condicionado = $fetch['ar_condicionado'];
 									if($ar_condicionado == 1){
