@@ -11,11 +11,24 @@
 
 </head>
 <body>
+	<?php  
+	include('conexao.php');
+	session_start();
+	if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
+	{
+		unset ($_SESSION['login']);
+		unset ($_SESSION['senha']);
+		header('location:login.html');   
+
+	}
+	$logado = $_SESSION['nome'];
+
+	?>
 	<header id="header" class="page-home">
 		<div class="container">
 			<div class="row">
 				<div class="col col-4 col-mobile-6">
-					<a href="index.html.php">
+					<a href="">
 						<h3><img src="./imagens/uespi2.png"></h3>
 					</a>
 				</div>
@@ -23,10 +36,11 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="#" class="active">Usuário</a></li>
-							<li><a href="#">Opção 1</a></li>
-							<li><a href="#">Opção 2</a></li>
-							<li><a href="#">Opção 3</a></li>
+							<?php
+							echo "<li><a href='pag_diretor.html.php'> $logado </a></li>"
+							?>							
+							<li><a href="notebooks.html.php">Cadastro Notebook</a></li>
+							<li><a href="#" class="active">Cadastro Data-Show</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -46,33 +60,33 @@
 	<section class="section section-center">
 		<div class="container">
 			<div class="row">
-			<h2>DATASHOWS</h2>
-			<div class="col col-2"></div>
-			<div class="col col-8">
-				<table class = "centered" >
-					<?php 
-					include('conexao.php');
-					$check  = mysqli_query($con,"SELECT * FROM data_shows");
-					if(mysqli_num_rows($check) == 0){
-						echo "<h3> Não há datashows cadastrados</h3>";
-					}else{
-						echo "<tr><td>Marca:</td>";
-						echo "<td>Entrada do cabo:</td>";
-						echo "<td>Lumens:</td>";
-						while($fetch = mysqli_fetch_assoc($check)){
-							$marca = $fetch['marca'];
-							echo "<tr><td>$marca</td>";
-							$entercabo = $fetch['entrada_de_cabo'];
-							echo "<td>$entercabo</td>";
-							$lumens = $fetch['lumens'];
-							echo "<td>$lumens</td>";
+				<h2>DATASHOWS</h2>
+				<div class="col col-2"></div>
+				<div class="col col-8">
+					<table class = "centered" >
+						<?php 
+						include('conexao.php');
+						$check  = mysqli_query($con,"SELECT * FROM data_shows");
+						if(mysqli_num_rows($check) == 0){
+							echo "<h3> Não há datashows cadastrados</h3>";
+						}else{
+							echo "<tr><td>Marca:</td>";
+							echo "<td>Entrada do cabo:</td>";
+							echo "<td>Lumens:</td>";
+							while($fetch = mysqli_fetch_assoc($check)){
+								$marca = $fetch['marca'];
+								echo "<tr><td>$marca</td>";
+								$entercabo = $fetch['entrada_de_cabo'];
+								echo "<td>$entercabo</td>";
+								$lumens = $fetch['lumens'];
+								echo "<td>$lumens</td>";
+							}
 						}
-					}
-					?>
-				</table>
+						?>
+					</table>
+				</div>
+				<div class="col col-2"></div>
 			</div>
-			<div class="col col-2"></div>
-		</div>
 		</div>
 	</section>
 
@@ -81,19 +95,19 @@
 		
 
 		<div class="row">
-		<h1>Cadastro de Datashows</h1>
-		<div class = "container">
+			<h1>Cadastro de Datashows</h1>
+			<div class = "container">
 
-			<form method="POST" action="cadastro_datashows.php" enctype="multipart/form-data">
-				<input type="text" name="marca" placeholder="Marca">
-				<input type="text" name="entercabo" placeholder="Tipo de entrada de cabo">
-				<input type="int" name="lumens" placeholder="Lumens(intesidade luminosa)">
-				<div class="input-control">
-					<input type="submit" name="Cadastrar" value="Cadastrar">
-				</div>
-			</form>
+				<form method="POST" action="cadastro_datashows.php" enctype="multipart/form-data">
+					<input type="text" name="marca" placeholder="Marca">
+					<input type="text" name="entercabo" placeholder="Tipo de entrada de cabo">
+					<input type="int" name="lumens" placeholder="Lumens(intesidade luminosa)">
+					<div class="input-control">
+						<input type="submit" name="Cadastrar" value="Cadastrar">
+					</div>
+				</form>
 
-		</div>
+			</div>
 		</div>
 	</section>
 </main>

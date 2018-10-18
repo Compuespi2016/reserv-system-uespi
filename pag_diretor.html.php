@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col col-4 col-mobile-6">
-                    <a href="index.html.php">
+                    <a href="#">
                         <h3><img src="./imagens/uespi2.png"></h3>
                     </a>
                 </div>
@@ -37,7 +37,7 @@
                     <nav>
                         <ul>
                             <?php
-                           echo "<li><a href='#' > $logado </a></li>" 
+                           echo "<li><a href='#' class ='active' > $logado </a></li>" 
                             ?>
                             <li><a href="notebooks.html.php">Cadastro Notebook</a></li>
                             <li><a href="data_shows.html.php">Cadastro Data-Show</a></li>

@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col col-4 col-mobile-6">
-					<a href="index.html">
+					<a href="#">
 						<h3><img src="./imagens/uespi2.png"></h3>
 					</a>
 				</div>
@@ -24,117 +24,106 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="#" class="active">Usuário</a></li>
-							<li><a href="#">Opção 1</a></li>
-							<li><a href="#">Opção 2</a></li>
-							<li><a href="#">Opção 3</a></li>
+							<li><a href="pag_prefeitura.php">Prefeitura</a></li>
+							<li><a href="cadastro_setor.html.php">Cadastrar Setor</a></li>
+							<li><a href="#" class="active">Cadastrar Sala</a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
+		</div>    
+	</header>
 
-            <!--
-            <div class="row">
-                <div class="col col-12 title">
-                    <h1>Tabela de Itens</h1>
-                </div>
-            </div>
-        -->
-    </div>    
-</header>
-
-<main>
-	<section class="section section-center">
-		<div class="container">
-			<div class="row">
-			<h2>SALAS</h2>
-			<div class="col col-2"></div>
-			<div class="col col-8">
-				<table class = "centered" >
-					<?php 
-					include('conexao.php');
-					$check  = mysqli_query($con,"SELECT * FROM salas");
-					if(mysqli_num_rows($check) == 0){
-						echo "<h3> Não há salas cadastrados</h3>";
-					}else{
-						echo "<tr><td>Id:</td>";
-						echo "<td>Setor:</td>";
-						echo "<td>Num Sala:</td>";
-						echo "<td>Tipo:</td>";
-						echo "<td>Ar-Cond:</td>";
-						echo "<td>Projetor:</td>";
-						echo "<td>Capacidade:</td>";
-						echo "<td>Situação:</td></tr>";
-						while($fetch = mysqli_fetch_assoc($check)){
-							$id_sala = $fetch['id'];
-							echo "<tr><td>$id_sala</td>";
-							$id_setor = $fetch['setor'];
-							echo "<td>$id_setor</td>";
-							$numero_sala_no_setor = $fetch['numero_sala_no_setor'];
-							echo "<td>$id_setor</td>";
-							$tipo_de_sala =$fetch['tipo_de_sala'];
-							if($tipo_de_sala == 1){
-								echo "<td>Aula</td>";
-							}else if($tipo_de_sala == 2){
-								echo "<td>Laboratorio</td>";
-							}else if($tipo_de_sala == 3){
-								echo "<td>Auditorio</td>";
+	<main>
+		<section class="section section-center">
+			<div class="container">
+				<div class="row">
+					<h2>SALAS</h2>
+					<div class="col col-12">
+						<table>
+							<?php 
+							include('conexao.php');
+							$check  = mysqli_query($con,"SELECT * FROM salas");
+							if(mysqli_num_rows($check) == 0){
+								echo "<h3> Não há salas cadastrados</h3>";
 							}else{
+								echo "<tr><td>Id:</td>";
+								echo "<td>Setor:</td>";
+								echo "<td>Num Sala:</td>";
+								echo "<td>Tipo:</td>";
+								echo "<td>Ar-Cond:</td>";
+								echo "<td>Projetor:</td>";
+								echo "<td>Capacidade:</td>";
+								echo "<td>Situação:</td></tr>";
+								while($fetch = mysqli_fetch_assoc($check)){
+									$id_sala = $fetch['id'];
+									echo "<tr><td>$id_sala</td>";
+									$id_setor = $fetch['setor'];
+									echo "<td>$id_setor</td>";
+									$numero_sala_no_setor = $fetch['numero_sala_no_setor'];
+									echo "<td>$id_setor</td>";
+									$tipo_de_sala =$fetch['tipo_de_sala'];
+									if($tipo_de_sala == 1){
+										echo "<td>Aula</td>";
+									}else if($tipo_de_sala == 2){
+										echo "<td>Laboratorio</td>";
+									}else if($tipo_de_sala == 3){
+										echo "<td>Auditorio</td>";
+									}else{
+									}
+									$ar_condicionado = $fetch['ar_condicionado'];
+									if($ar_condicionado == 1){
+										echo "<td>Sim</td>";
+									}else{
+										echo "<td>Não</td>";
+									}
+									$projetor=$fetch['projetor'];
+									if($projetor == 1){
+										echo "<td>Sim</td>";
+									}else{
+										echo "<td>Não</td>";
+									}
+
+									$capacidade =$fetch['capacidade'];
+									echo "<td>$capacidade</td>";
+
+									$id = $fetch['id'];
+									echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
+									<i class='material-icons center'>DELETE</i>
+									</button></td>";
+								}
 							}
-							$ar_condicionado = $fetch['ar_condicionado'];
-							if($ar_condicionado == 1){
-								echo "<td>Sim</td>";
-							}else{
-								echo "<td>Não</td>";
-							}
-							$projetor=$fetch['projetor'];
-							if($projetor == 1){
-								echo "<td>Sim</td>";
-							}else{
-								echo "<td>Não</td>";
-							}
-
-							$capacidade =$fetch['capacidade'];
-							echo "<td>$capacidade</td>";
-							
-							$id = $fetch['id'];
-							echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
-						  		<i class='material-icons center'>DELETE</i>
-							</button></td>";
-						}
-					}
-					?>
-				</table>
-			</div>
-			<div class="col col-2"></div>
-			</div>
-		</div>
-	</section>
-
-	<br>
-
-	<section class="section section-center">
-		
-		<div class="row">
-		<h1>Cadastro de Sala</h1>
-		<div class = "container">
-
-			<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
-				<input type="int" name="setor" placeholder="setor">
-				<input type="int" name="numero_sala_no_setor" placeholder="numero_sala_no_setor">
-				<input type="int" name="tipo_de_sala" placeholder="tipo sala">
-				<input type="int" name="capacidade" placeholder="capacidade">
-				<input type="int" name="ar_condicionado" placeholder="ar_condicionado">
-				<input type="int" name="projetor" placeholder="projetor">
-				<div class="input-control">
-					<input type="submit" name="Cadastrar" value="Cadastrar">
+							?>
+						</table>
+					</div>
 				</div>
-			</form>
+			</div>
+		</section>
 
-		</div>
-		</div>
-	</section>
-</main>
+		<br>
+
+		<section class="section section-center">
+			
+			<div class="row">
+				<h1>Cadastro de Sala</h1>
+				<div class = "container">
+
+					<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
+						<input type="int" name="setor" placeholder="setor">
+						<input type="int" name="numero_sala_no_setor" placeholder="numero_sala_no_setor">
+						<input type="int" name="tipo_de_sala" placeholder="tipo sala">
+						<input type="int" name="capacidade" placeholder="capacidade">
+						<input type="int" name="ar_condicionado" placeholder="ar_condicionado">
+						<input type="int" name="projetor" placeholder="projetor">
+						<div class="input-control">
+							<input type="submit" name="Cadastrar" value="Cadastrar">
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</section>
+	</main>
 
     <!--
     <footer id="footer">
@@ -168,7 +157,7 @@
 		$.post("delete_sala.php", { id: value });
 		alert("Sala  Excluido com Sucesso");
 		window.location.href='sala.html.php';
- 	}
+	}
 
 </script>
 </body>
