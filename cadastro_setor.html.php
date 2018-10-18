@@ -21,7 +21,7 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="pag_prefeitura.php">Prefeitura</a></li>
+							<li><a href="pag_prefeitura.html.php">Prefeitura</a></li>
 							<li><a href="#" class="active">cadastrar Setor</a></li>
 							<li><a href="sala.html.php">Cadastrar Sala</a></li>
 							<li><a href="logout.php">Sair</a></li>
