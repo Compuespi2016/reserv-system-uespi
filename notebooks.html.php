@@ -43,6 +43,7 @@
 						?>
 						<li><a href="$" class="active">Cadastro Notebook</a></li>
 						<li><a href="data_shows.html.php">Cadastro Data-Show</a></li>
+						<li><a href="logout.php">Sair</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -70,6 +71,7 @@
 							echo "<td>Polegada:</td>";
 							echo "<td>SO:</td>";
 							echo "<td>Delete:</td></tr>";
+							echo "<td>Editar:</td></tr>";
 
 							while($fetch = mysqli_fetch_assoc($check)){
 								$marca = $fetch['marca'];
@@ -82,9 +84,13 @@
 								echo "<td>$so</td>";
 
 								$id = $fetch['id'];
-									echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
-									<i class='material-icons center'>DELETE</i>
-									</button></td>";
+								echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
+								<i class='material-icons center'>DELETE</i>
+								</button></td>";
+
+								echo "<td><button class='btn-flat' value='$id' onclick='fun_edit(this.value)' name='bt1'>
+								<i class='material-icons center'>EDIT</i>
+								</button></td>";
 
 							}
 						}
@@ -128,6 +134,10 @@
 		$.post("delete_notebook.php", { id: value });
 		alert("notebook  excluido com Sucesso");
 		window.location.href='notebooks.html.php';
+	}
+	function fun_edit(value) {
+		$.post("atualizar_notebook.hmtl.php", { id: value });
+		window.location.href='atualizar_notebooks.html.php';
 	}
 
 </script>
