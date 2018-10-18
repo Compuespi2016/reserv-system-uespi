@@ -27,6 +27,7 @@
 							<li><a href="pag_prefeitura.php">Prefeitura</a></li>
 							<li><a href="cadastro_setor.html.php">Cadastrar Setor</a></li>
 							<li><a href="#" class="active">Cadastrar Sala</a></li>
+							<li><a href="logout.php">Sair</a></li>
 						</ul>
 					</nav>
 				</div>
