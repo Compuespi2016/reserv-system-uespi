@@ -54,7 +54,7 @@
 								echo "<td>Ar-Cond:</td>";
 								echo "<td>Projetor:</td>";
 								echo "<td>Capacidade:</td>";
-								echo "<td>Situação:</td></tr>";
+								echo "<td>Delete</td></tr>";
 								while($fetch = mysqli_fetch_assoc($check)){
 									$id_sala = $fetch['id'];
 									echo "<tr><td>$id_sala</td>";
