@@ -11,7 +11,17 @@
 </head>
 
 </head>
-<body>
+<body>	
+	<?php 
+	include('conexao.php');
+	session_start();
+	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
+		unset($_SESSION['login']);
+		unset($_SESSION['senha']);
+		header('location:login.html');
+	}
+
+	?>
 	<header id="header" class="page-home">
 		<div class="container">
 			<div class="row">
