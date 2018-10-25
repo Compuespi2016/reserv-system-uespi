@@ -15,7 +15,7 @@
 	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
 		unset($_SESSION['login']);
 		unset($_SESSION['senha']);
-		header('location:login.html');
+		header('location:index.html.php');
 	}
 
 	?>
@@ -33,7 +33,7 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="pag_prefeitura.html.php" class="active">Prefeitura</a></li>
+							<li><a href="pag_prefeitura.php" class="active">Prefeitura</a></li>
 							<li><a href="cadastro_setor.html.php">Cadastrar Setor</a></li>
 							<li><a href="sala.html.php">Cadastrar Sala</a></li>
 							<li><a href="logout.php">Sair</a></li>
@@ -62,32 +62,7 @@
 	</section>
 </main>
 
-<!--
-    <footer id="footer">
 
-        <div class="container">
-            <div class="row">
-                <div class="col col-offset-desktop-1 col-4 col-mobile-6">
-                   
-                </div>
-
-                <div class="col col-offset-desktop-1 col-3 col-mobile-2">
-                    <h3>Menu</h3>
-                    <nav>
-                        <ul>
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li><a href="login.html">Prefeitura</a></li>
-                            <li><a href="#">Cadastrar Setor</a></li>
-                            <li><a href="#">Cadastrar Sala</a></li>
-                        </ul>           
-                    </nav>
-                </div>
-
-            </div>
-        </div>
-
-    </footer>
--->
 
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados

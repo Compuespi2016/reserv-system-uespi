@@ -41,6 +41,7 @@
 							?>							
 							<li><a href="notebooks.html.php">Cadastro Notebook</a></li>
 							<li><a href="#" class="active">Cadastro Data-Show</a></li>
+							<li><a href="logout.php">Sair</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -111,29 +112,6 @@
 		</div>
 	</section>
 </main>
-
-    <!--
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col col-offset-desktop-1 col-4 col-mobile-6">
-                   
-                </div>
-                <div class="col col-offset-desktop-1 col-3 col-mobile-2">
-                    <h3>Menu</h3>
-                    <nav>
-                        <ul>
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li><a href="login.html">Usúario</a></li>
-                            <li><a href="#">Opção 1</a></li>
-                            <li><a href="#">Opção 2</a></li>
-                        </ul>           
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </footer>
--->
 
 
 <div id="copyright">

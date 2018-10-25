@@ -7,6 +7,16 @@
     <title>Sistema de reservas - UESPI</title>
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" media="Screen and (max-width: 700px)" href="css/mobile.css">
+    <?php 
+    include('conexao.php');
+    session_start();
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        header('location:index.html.php');
+    }
+
+    ?>
 </head>
 <body>
     <header id="header" class="page-home">

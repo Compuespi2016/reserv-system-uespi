@@ -42,6 +42,7 @@
 						?>
 						<li><a href="$" class="active">Cadastro Notebook</a></li>
 						<li><a href="data_shows.html.php">Cadastro Data-Show</a></li>
+						<li><a href="logout.php">Sair</a></li>
 					</ul>
 				</nav>
 			</div>
