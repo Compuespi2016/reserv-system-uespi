@@ -5,6 +5,6 @@ include('conexao.php');
 
   if($insert){
 
-    echo"<script language='javascript' type='text/javascript'>alert('Sensor cadastrado com sucesso!');window.location.href='pag_prefeitura.php'</script>";
+    echo"<script language='javascript' type='text/javascript'>alert('Setor cadastrado com sucesso!');window.location.href='cadastro_setor.html.php'</script>";
   
   }

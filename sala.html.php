@@ -65,7 +65,7 @@
 								echo "<td>Ar-Cond:</td>";
 								echo "<td>Projetor:</td>";
 								echo "<td>Capacidade:</td>";
-								echo "<td>Delete</td></tr>";
+								echo "<td>Excluir</td></tr>";
 								while($fetch = mysqli_fetch_assoc($check)){
 									$id_sala = $fetch['id'];
 									echo "<tr><td>$id_sala</td>";
@@ -101,7 +101,7 @@
 
 									$id = $fetch['id'];
 									echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
-									<i class='material-icons center'>DELETE</i>
+									<i class='material-icons center'>Excluir</i>
 									</button></td>";
 								}
 							}

@@ -16,10 +16,10 @@ include('conexao.php');
 
   if($insert){
 
-    echo"<script language='javascript' type='text/javascript'>alert('Sala cadastrada com sucesso! ');window.location.href='pag_diretor.html.php'</script>";
+    echo"<script language='javascript' type='text/javascript'>alert('Notebook cadastrado com sucesso! ');window.location.href='notebooks.html.php'</script>";
   
   }else{
   	echo mysqli_error($insert);
-  	echo"<script language='javascript' type='text/javascript'>alert('Nao deu certo!$marca $modelo $polegada $so $insert');window.location.href='notebooks.html.php'</script>";
+  	echo"<script language='javascript' type='text/javascript'>alert('Cadastro invalido!');window.location.href='notebooks.html.php'</script>";
 
   }

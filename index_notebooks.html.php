@@ -21,8 +21,8 @@
                 <div class="col col-8 col-mobile-6">
                     <nav>
                         <ul>
-                            <li><a href="index.html.php" class="active">Home</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.html.php" class="active">Página inicial</a></li>
+                            <li><a href="login.html">Entrar</a></li>
 
                         </ul>
                     </nav>
@@ -44,7 +44,7 @@
     <section id="middle" class="section section-center">
 
         <h2>Itens e Salas - UESPI</h2>
-        <p>Itens disponieveis para reserva</p>
+        <p>Itens disponiveis para reserva</p>
         <div class="container">
             <div class="row">
                 <div class="col col-12">

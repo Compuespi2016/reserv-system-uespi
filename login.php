@@ -26,7 +26,7 @@ $result = mysqli_query($con,"SELECT * FROM usuarios WHERE matricula = '$login' a
 		
 
 		if($id == 0){ //prefeitura
-			header('location:pag_prefeitura.php');
+			header('location:pag_prefeitura.html.php');
 		}elseif ($id == 1){ //diretor
 			header('location:pag_diretor.html.php');
 		}

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sistema de reservas - Cadastro de datashows</title>
+	<title>Sistema de Reservas - Cadastro de Datashows</title>
 	<link rel="stylesheet" href="css/pages/home.css">
 	<link rel="stylesheet" media="Screen and (max-width: 700px)" href="css/mobile.css">
 </head>

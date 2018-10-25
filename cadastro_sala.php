@@ -18,10 +18,10 @@ include('conexao.php');
 
   if($insert){
 
-    echo"<script language='javascript' type='text/javascript'>alert('Sala cadastrada com sucesso!');window.location.href='pag_prefeitura.php'</script>";
+    echo"<script language='javascript' type='text/javascript'>alert('Sala cadastrada com sucesso!');window.location.href='sala.html.php'</script>";
   
   }else{
 
-  	echo"<script language='javascript' type='text/javascript'>alert('Nao deu certo!');window.location.href='pag_prefeitura.php'</script>";
+  	echo"<script language='javascript' type='text/javascript'>alert('Cadastro invalido!');window.location.href='sala.html.php'</script>";
 
   }

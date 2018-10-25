@@ -21,8 +21,8 @@
                 <div class="col col-8 col-mobile-6">
                     <nav>
                         <ul>
-                            <li><a href="index.html.php" class="active">Home</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.html.php" class="active">Ṕágina inicial</a></li>
+                            <li><a href="login.html">Entrar</a></li>
 
                         </ul>
                     </nav>
@@ -44,7 +44,7 @@
     <section id="middle" class="section section-center">
 
         <h2>Itens e Salas - UESPI</h2>
-        <p>Itens disponieveis para reserva</p>
+        <p>Itens disponiveis para reserva</p>
         <div class="container">
             <div class="row">
                 <div class="col col-12">
@@ -75,7 +75,6 @@
                         if(mysqli_num_rows($check) == 0){
                             echo "<h3> Não há salas cadastrados</h3>";
                         }else{
-                            echo "<tr><td>Id:</td>";
                             echo "<td>Setor:</td>";
                             echo "<td>Num Sala:</td>";
                             echo "<td>Tipo:</td>";
@@ -85,7 +84,7 @@
                             echo "<td>Estado:</td></tr>";
                             while($fetch = mysqli_fetch_assoc($check)){
                                 $id_sala = $fetch['id'];
-                                echo "<tr><td>$id_sala</td>";
+                                echo "<tr>";
                                 $id_setor = $fetch['setor'];
                                 echo "<td>$id_setor</td>";
                                 $numero_sala_no_setor = $fetch['numero_sala_no_setor'];
