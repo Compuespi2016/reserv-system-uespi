@@ -40,7 +40,7 @@
 						<?php
 						echo "<li><a href='pag_diretor.html.php'> $logado </a></li>"
 						?>
-						<li><a href="$" class="active">Cadastro Notebook</a></li>
+						<li><a href="notebooks.html.php" class="active">Cadastro Notebook</a></li>
 						<li><a href="data_shows.html.php">Cadastro Data-Show</a></li>
 						<li><a href="logout.php">Sair</a></li>
 					</ul>
@@ -99,10 +99,24 @@
 		<div class = "container">
 			<div class="row">
 				<form method="POST" action="cadastro_notebooks.php" enctype="multipart/form-data">
-					<input type="text" name="marca" placeholder="Marca">
+					<select name="marca">
+						<option disabled="" selected="">Marca</option>
+						<option value="Dell">Dell</option>
+						<option value="Asus">Asus</option>
+						<option value="Samsung">Samsung</option>
+						<option value="Apple">Apple</option>
+						<option value="Outros">Outros</option>
+					</select>
 					<input type="text" name="modelo" placeholder="Modelo">
 					<input type="int" name="polegada" placeholder="Tamanho tela(polegadas)">
-					<input type="text" name="so" placeholder="SO(Sistema Operacional)">
+					<!--<input type="text" name="so" placeholder="SO(Sistema Operacional)">-->
+					<select name="so">
+						<option disabled="" selected="">Sistema Operacional</option>
+						<option value="Windows">Windows</option>
+						<option value="Ubuntu">Ubuntu</option>
+						<option value="MacOs">MacOs</option>
+						<option value="Linux Dist">Linux Dist</option>
+					</select>
 					<div class="input-control">
 						<input type="submit" name="Cadastrar" value="Cadastrar">
 					</div>
