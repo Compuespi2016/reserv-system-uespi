@@ -55,7 +55,7 @@
                             <option value="index_salas.html.php">Salas</option>
                             <option value="index_notebooks.html.php">Notebooks</option>
                             <option value="index_datashow.html.php">Datashow</option>
-                            <option value="#">Diversos</option>
+                            
                         </select>  
 
                         <script type="text/javascript">
