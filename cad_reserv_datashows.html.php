@@ -61,30 +61,27 @@
         <div class="container">
             <div class="row">
 
-                <h2>NOTEBOOK :</h2>
+                <h2>DATASHOW :</h2>
                 <div class="col col-2"></div>
                 <div class="col col-8">
                     <table class = "centered" >
                         <?php 
                         include('conexao.php');
-                        $check  = mysqli_query($con,"SELECT * FROM notebooks WHERE  id ='$id'");
+                        $check  = mysqli_query($con,"SELECT * FROM data_shows WHERE  id ='$id'");
                         if(mysqli_num_rows($check) == 0){
                             echo "<h3> Não há notebooks cadastrados</h3>";
                         }else{
                             echo "<tr><td>Marca:</td>";
-                            echo "<td>Modelo:</td>";
-                            echo "<td>Polegada:</td>";
-                            echo "<td>SO:</td>";
+                            echo "<td>Entrada de cabo:</td>";
+                            echo "<td>Lumens:</td>";
 
                             while($fetch = mysqli_fetch_assoc($check)){
                                 $marca = $fetch['marca'];
-                                echo "<tr><td>$marca</td>";
-                                $modelo = $fetch['modelo'];
+                                echo "<tr><td>$modelo</td>";
+                                $entrada_cabo = $fetch['modelo'];
                                 echo "<td>$modelo</td>";
-                                $polegada = $fetch['polegada'];
-                                echo "<td>$polegada</td>";
-                                $so =$fetch['so'];
-                                echo "<td>$so</td>";
+                                $Lumens = $fetch['lumens'];
+                                echo "<td>$Lumens</td>";
 
                             }
                         }
@@ -98,7 +95,7 @@
         <section class="section section-center">
         
 
-        <h1>EFETUAR RESERVA DE NOTEBOOK</h1>
+        <h1>EFETUAR RESERVA DE DATASHOW</h1>
         <div class = "container">
             <div class="row">
                 <form method="POST" action="#" enctype="multipart/form-data">

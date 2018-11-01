@@ -83,9 +83,9 @@
 								$so =$fetch['so'];
 								echo "<td>$so</td>";
 								$id = $fetch['id'];
-								echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
-									<i class='material-icons center'>Reservar</i>
-									</button></td>";
+								echo "<td> <form action = 'cad_reserv_notebook.html.php' method = 'POST'>";
+								echo "<input type = 'hidden' name = 'id' value = '$id' >";
+								echo "<button class='btn-flat' type='submit' name ='action'><i class='material-icons center'>Reservar</i></td></tr>" ;
 
 							}
 						}
@@ -112,11 +112,12 @@
 </div>
 <script type="text/javascript">
 	function fun_del(value) {
-		window.location.href='cad_reserv_notebook.html.php';
-		$.post("cad_reserv_notebook.html.php", { id: value });
+		
+		$.post("cad_reserv_notebook.html.php", {id:value})
+		alert("Data: "+ value);
+    	window.location.replace("cad_reserv_notebook.html.php");
 		
 	}
-
 </script>
 </body>
 </html>

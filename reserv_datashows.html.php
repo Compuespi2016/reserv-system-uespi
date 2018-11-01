@@ -83,6 +83,10 @@
 								echo "<td>$entercabo</td>";
 								$lumens = $fetch['lumens'];
 								echo "<td>$lumens</td>";
+								$id = $fetch['id'];
+								echo "<td> <form action = 'cad_reserv_datashows.html.php' method = 'POST'>";
+								echo "<input type = 'hidden' name = 'id' value = '$id' >";
+								echo "<button class='btn-flat' type='submit' name ='action'><i class='material-icons center'>Reservar</i></td></tr>" ;
 							}
 						}
 						?>
@@ -105,6 +109,14 @@
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
-
+<script type="text/javascript">
+	function fun_del(value) {
+		
+		$.post("cad_reserv_datashows.html.php", {id:value})
+		alert("Data: "+ value);
+    	window.location.replace("cad_reserv_datashows.html.php");
+		
+	}
+</script>
 </body>
 </html>
