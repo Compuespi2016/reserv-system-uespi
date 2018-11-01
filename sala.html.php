@@ -12,16 +12,17 @@
 
 </head>
 <body>	
+	
 	<?php 
-	include('conexao.php');
-	session_start();
-	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
-		unset($_SESSION['login']);
-		unset($_SESSION['senha']);
-		header('location:login.html');
-	}
-
+	#include('conexao.php');
+	#session_start();
+	#if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
+	#	unset($_SESSION['login']);
+	#	unset($_SESSION['senha']);
+	#	header('location:login.html');
+	#}
 	?>
+	
 	<header id="header" class="page-home">
 		<div class="container">
 			<div class="row">
@@ -36,7 +37,7 @@
 						<ul>
 							<li><a href="pag_prefeitura.html.php">Prefeitura</a></li>
 							<li><a href="cadastro_setor.html.php">Cadastrar Setor</a></li>
-							<li><a href="sala.html.php" class="active">Cadastrar Sala</a></li>
+							<li><a href="#" class="active">Cadastrar Sala</a></li>
 							<li><a href="logout.php">Sair</a></li>
 						</ul>
 					</nav>
@@ -123,10 +124,25 @@
 					<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
 						<input type="int" name="setor" placeholder="setor">
 						<input type="int" name="numero_sala_no_setor" placeholder="numero_sala_no_setor">
-						<input type="int" name="tipo_de_sala" placeholder="tipo sala">
+						<select name="tipo_de_sala">
+							<option disabled="" selected="">Tipo de Sala</option>
+							<option value="Laboratorio">Laboratorio</option>
+							<option value="Auditorio">Auditorio</option>
+							<option value="Aula">Aulas</option>
+							<option value="outro">Outro</option>
+						</select>
+
 						<input type="int" name="capacidade" placeholder="capacidade">
-						<input type="int" name="ar_condicionado" placeholder="ar_condicionado">
-						<input type="int" name="projetor" placeholder="projetor">
+						<select name="ar_condicionado">
+							<option disabled="" selected="">Ar Condicionado</option>
+							<option value="1">Sim</option>
+							<option value="0">Não</option>
+						</select>
+						<select name="projetor">
+							<option disabled="" selected="">Projetor</option>
+							<option value="1">Sim</option>
+							<option value="0">Não</option>
+						</select>
 						<div class="input-control">
 							<input type="submit" name="Cadastrar" value="Cadastrar">
 						</div>
