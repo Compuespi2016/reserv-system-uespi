@@ -7,6 +7,7 @@
 	<title>Sistema de reservas - Cadastro de notebooks</title>
 	<link rel="stylesheet" href="css/pages/home.css">
 	<link rel="stylesheet" media="Screen and (max-width: 700px)" href="css/mobile.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 
 </head>
@@ -42,7 +43,7 @@
 						?>
 						<li><a href="#">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
-                            <li><a href="#">Reserva de Data-Show</a></li>
+                            <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
                             <li><a href="#">Minhas reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
 					</ul>
@@ -81,6 +82,10 @@
 								echo "<td>$polegada</td>";
 								$so =$fetch['so'];
 								echo "<td>$so</td>";
+								$id = $fetch['id'];
+								echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
+									<i class='material-icons center'>Reservar</i>
+									</button></td>";
 
 							}
 						}
@@ -100,33 +105,18 @@
 		
 </main>
 
-    <!--
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col col-offset-desktop-1 col-4 col-mobile-6">
-                   
-                </div>
-                <div class="col col-offset-desktop-1 col-3 col-mobile-2">
-                    <h3>Menu</h3>
-                    <nav>
-                        <ul>
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li><a href="login.html">Usúario</a></li>
-                            <li><a href="#">Opção 1</a></li>
-                            <li><a href="#">Opção 2</a></li>
-                        </ul>           
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </footer>
--->
 
 
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
+<script type="text/javascript">
+	function fun_del(value) {
+		window.location.href='cad_reserv_notebook.html.php';
+		$.post("cad_reserv_notebook.html.php", { id: value });
+		
+	}
 
+</script>
 </body>
 </html>

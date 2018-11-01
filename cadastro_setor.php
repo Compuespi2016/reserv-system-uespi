@@ -1,4 +1,4 @@
-<?
+<?php
 include('conexao.php');
         	   
   $insert = mysqli_query($con,"INSERT INTO setor VALUES()"); 
