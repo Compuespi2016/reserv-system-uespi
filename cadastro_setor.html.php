@@ -7,6 +7,7 @@
 	<title>Sistema de Reservas - Cadastro de Datashows</title>
 	<link rel="stylesheet" href="css/pages/home.css">
 	<link rel="stylesheet" media="Screen and (max-width: 700px)" href="css/mobile.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 	<?php 
@@ -32,7 +33,7 @@
 					<nav>
 						<ul>
 							<li><a href="pag_prefeitura.html.php">Prefeitura</a></li>
-							<li><a href="#" class="active">cadastrar Setor</a></li>
+							<li><a href="cadastro_setor.html.php" class="active">Cadastrar Setor</a></li>
 							<li><a href="sala.html.php">Cadastrar Sala</a></li>
 							<li><a href="logout.php">Sair</a></li>
 						</ul>
@@ -59,7 +60,12 @@
 
 									$id_setor = $fetch['id'];
 									echo "<tr><td>Setor:";
-									echo "$id_setor</td></tr>"; 
+									echo "$id_setor</td>"; 
+
+									$id = $id_setor;
+									echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
+									<i class='material-icons center'>Excluir</i>
+									</button></td><tr>";
 
 								}
 							}
@@ -86,6 +92,13 @@
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
+<script type="text/javascript">
+	function fun_del(value) {
+		$.post("delete_setor.php", { id: value });
+		alert("Setor Excluido com Sucesso");
+		window.location.href='cadastro_setor.html.php';
+	}
 
+</script>
 </body>
 </html>

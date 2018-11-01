@@ -37,7 +37,7 @@
                     <nav>
                         <ul>
                             <?php
-                           echo "<li><a href='#' class ='active' > $logado </a></li>" 
+                           echo "<li><a href='pag_diretor.html.php' class ='active' > $logado </a></li>" 
                             ?>
                             <li><a href="notebooks.html.php">Cadastro Notebook</a></li>
                             <li><a href="data_shows.html.php">Cadastro Data-Show</a></li>

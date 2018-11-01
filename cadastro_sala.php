@@ -1,4 +1,4 @@
-<?
+<?php
 
 $id_setor = $_POST['setor'];
 

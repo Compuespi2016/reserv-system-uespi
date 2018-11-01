@@ -99,24 +99,10 @@
 		<div class = "container">
 			<div class="row">
 				<form method="POST" action="cadastro_notebooks.php" enctype="multipart/form-data">
-					<select name="marca">
-						<option disabled="" selected="">Marca</option>
-						<option value="Dell">Dell</option>
-						<option value="Asus">Asus</option>
-						<option value="Samsung">Samsung</option>
-						<option value="Apple">Apple</option>
-						<option value="Outros">Outros</option>
-					</select>
+					<input type="text" name="marca" placeholder="Marca">
 					<input type="text" name="modelo" placeholder="Modelo">
 					<input type="int" name="polegada" placeholder="Tamanho tela(polegadas)">
-					<!--<input type="text" name="so" placeholder="SO(Sistema Operacional)">-->
-					<select name="so">
-						<option disabled="" selected="">Sistema Operacional</option>
-						<option value="Windows">Windows</option>
-						<option value="Ubuntu">Ubuntu</option>
-						<option value="MacOs">MacOs</option>
-						<option value="Linux Dist">Linux Dist</option>
-					</select>
+					<input type="text" name="so" placeholder="SO(Sistema Operacional)">
 					<div class="input-control">
 						<input type="submit" name="Cadastrar" value="Cadastrar">
 					</div>

@@ -40,7 +40,7 @@
 							echo "<li><a href='pag_diretor.html.php'> $logado </a></li>"
 							?>							
 							<li><a href="notebooks.html.php">Cadastro Notebook</a></li>
-							<li><a href="#" class="active">Cadastro Data-Show</a></li>
+							<li><a href="data_shows.html.php" class="active">Cadastro Data-Show</a></li>
 							<li><a href="logout.php">Sair</a></li>
 						</ul>
 					</nav>
@@ -100,21 +100,8 @@
 			<div class = "container">
 
 				<form method="POST" action="cadastro_datashows.php" enctype="multipart/form-data">
-					<select name="marca">
-						<option disabled="" selected="">Marca</option>
-						<option value="Epson">Epson</option>
-						<option value="LG">LG</option>
-						<option value="BenQ">BenQ</option>
-						<option value="outros">Outros</option>
-					</select>
-				
-					<select name="entercabo">
-						<option disabled="" selected="">Tipo do Cabeamento</option>
-						<option value="HDMI/VGA">HDMI/VGA</option>
-						<option value="HDMI">HDMI</option>
-						<option value="VGA">VGA</option>
-						<option value="outro">Outro</option>
-					</select>
+					<input type="text" name="marca" placeholder="Marca">
+					<input type="text" name="entercabo" placeholder="Tipo de entrada de cabo">
 					<input type="int" name="lumens" placeholder="Lumens(intesidade luminosa)">
 					<div class="input-control">
 						<input type="submit" name="Cadastrar" value="Cadastrar">

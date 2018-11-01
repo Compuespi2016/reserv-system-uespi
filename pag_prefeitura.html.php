@@ -33,7 +33,7 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="pag_prefeitura.php" class="active">Prefeitura</a></li>
+							<li><a href="pag_prefeitura.html.php" class="active">Prefeitura</a></li>
 							<li><a href="cadastro_setor.html.php">Cadastrar Setor</a></li>
 							<li><a href="sala.html.php">Cadastrar Sala</a></li>
 							<li><a href="logout.php">Sair</a></li>
