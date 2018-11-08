@@ -51,7 +51,8 @@
 			<div class="container">
 				<div class="row">
 					<h2>SALAS</h2>
-					<div class="col col-12">
+					
+					<div class="col col-12" align="center">
 						<table>
 							<?php 
 							include('conexao.php');
@@ -66,6 +67,7 @@
 								echo "<td>Ar-Cond:</td>";
 								echo "<td>Projetor:</td>";
 								echo "<td>Capacidade:</td>";
+								echo "<td>Alterar</td>";
 								echo "<td>Excluir</td></tr>";
 								while($fetch = mysqli_fetch_assoc($check)){
 									$id_sala = $fetch['id'];
@@ -73,7 +75,7 @@
 									$id_setor = $fetch['setor'];
 									echo "<td>$id_setor</td>";
 									$numero_sala_no_setor = $fetch['numero_sala_no_setor'];
-									echo "<td>$id_setor</td>";
+									echo "<td>$numero_sala_no_setor</td>";
 									$tipo_de_sala =$fetch['tipo_de_sala'];
 									if($tipo_de_sala == 1){
 										echo "<td>Aula</td>";
@@ -100,12 +102,18 @@
 									$capacidade =$fetch['capacidade'];
 									echo "<td>$capacidade</td>";
 
+									echo "<td><button class='btn-flat' value='' onclick='' name='bt1'>
+									<i class='material-icons center'>Alterar</i>
+									</button></td>";
+									
 									$id = $fetch['id'];
 									echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
 									<i class='material-icons center'>Excluir</i>
-									</button></td>";
+									</button></td></tr>";
 								}
 							}
+							
+
 							?>
 						</table>
 					</div>
@@ -122,26 +130,27 @@
 				<div class = "container">
 
 					<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
-						<input type="int" name="setor" placeholder="setor">
-						<input type="int" name="numero_sala_no_setor" placeholder="numero_sala_no_setor">
+						<input type="int" name="setor" placeholder="Setor">
+						<input type="int" name="num_sala" placeholder="Numero da Sala">
+
 						<select name="tipo_de_sala">
 							<option disabled="" selected="">Tipo de Sala</option>
-							<option value="Laboratorio">Laboratorio</option>
-							<option value="Auditorio">Auditorio</option>
-							<option value="Aula">Aulas</option>
-							<option value="outro">Outro</option>
+							<option value="1" >Aulas</option>
+							<option value="2" >Laboratorio</option>
+							<option value="3" >Auditorio</option>
+							<option value="0" >Outro</option>
 						</select>
 
 						<input type="int" name="capacidade" placeholder="capacidade">
 						<select name="ar_condicionado">
 							<option disabled="" selected="">Ar Condicionado</option>
-							<option value="1">Sim</option>
-							<option value="0">Não</option>
+							<option value="1" >Sim</option>
+							<option value="0" >Não</option>
 						</select>
 						<select name="projetor">
 							<option disabled="" selected="">Projetor</option>
-							<option value="1">Sim</option>
-							<option value="0">Não</option>
+							<option value="1" >Sim</option>
+							<option value="0" >Não</option>
 						</select>
 						<div class="input-control">
 							<input type="submit" name="Cadastrar" value="Cadastrar">
@@ -152,30 +161,6 @@
 			</div>
 		</section>
 	</main>
-
-    <!--
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col col-offset-desktop-1 col-4 col-mobile-6">
-                   
-                </div>
-                <div class="col col-offset-desktop-1 col-3 col-mobile-2">
-                    <h3>Menu</h3>
-                    <nav>
-                        <ul>
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li><a href="login.html">Usúario</a></li>
-                            <li><a href="#">Opção 1</a></li>
-                            <li><a href="#">Opção 2</a></li>
-                        </ul>           
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </footer>
--->
-
 
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
