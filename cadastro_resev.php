@@ -2,24 +2,25 @@
 
 
 $id_matricula =$_POST['matricula'];
+$data_completa = $_POST['data_completa'];
 
-$dia = $_POST['dia'];
+/*$dia = $_POST['dia'];
 
 $mes = $_POST['mes'];
 
 $ano = $_POST['ano'];
-
+*/
 $tipo_reserva = $_POST['tipo_reserva'];
 
 $turno =$_POST['turno'];
 
 $id_objeto_reservado = $_POST['id_objeto_reservado'];
 
-echo "<p>$id_matricula,$dia,$mes,$ano,$tipo_reserva,$turno,$id_objeto_reservado</p>";
+echo "<p>$id_matricula,$data_completa,$tipo_reserva,$turno,$id_objeto_reservado</p>";
 
 include('conexao.php');
         	   
-  $insert = mysqli_query($con,"INSERT INTO reservas(matricula,data_reserva,id_tipo,turno,id_objeto) VALUES('$id_matricula','TO_DATE($dia/$mes/$ano, DD/MM/YYYY)','$tipo_reserva','$turno','$id_objeto_reservado')"); 
+  $insert = mysqli_query($con,"INSERT INTO reservas(matricula,data_reserva,id_tipo,turno,id_objeto) VALUES('$id_matricula','$data_completa','$tipo_reserva','$turno','$id_objeto_reservado')"); 
 
   if($insert){
 
