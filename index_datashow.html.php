@@ -71,6 +71,7 @@
                     <table>
                         <?php 
                     include('conexao.php');
+                    header("Content-Type: text/html; charset=ISO-8859-1",true);
                     $check  = mysqli_query($con,"SELECT * FROM data_shows");
                     if(mysqli_num_rows($check) == 0){
                         echo "<h3> Não há datashows cadastrados</h3>";

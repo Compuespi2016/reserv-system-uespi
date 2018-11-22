@@ -14,6 +14,7 @@
 <body>
 	<?php  
 	include('conexao.php');
+	header("Content-Type: text/html; charset=ISO-8859-1",true);
 	session_start();
 	if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
 	{
