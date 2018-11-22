@@ -13,7 +13,6 @@
 <body>
 	<?php  
 	include('conexao.php');
-	header("Content-Type: text/html; charset=ISO-8859-1",true);
 	session_start();
 	if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
 	{
@@ -74,20 +73,22 @@
 						if(mysqli_num_rows($check) == 0){
 							echo "<h3> Não há datashows cadastrados</h3>";
 						}else{
-							echo "<tr><td>Marca:</td>";
+							echo "<tr><td>id:</td>";
+							echo "<td>Marca:</td>";
 							echo "<td>Entrada do cabo:</td>";
 							echo "<td>Lumens:</td>";
 							while($fetch = mysqli_fetch_assoc($check)){
+								$idx = $fetch['id'];
+                                echo "<tr><td>$idx</td>";
 								$marca = $fetch['marca'];
-								echo "<tr><td>$marca</td>";
+								echo "<td>$marca</td>";
 								$entercabo = $fetch['entrada_de_cabo'];
 								echo "<td>$entercabo</td>";
 								$lumens = $fetch['lumens'];
 								echo "<td>$lumens</td>";
-								$id = $fetch['id'];
 								echo "<td> <form action = 'cad_reserv_datashows.html.php' method = 'POST'>";
-								echo "<input type = 'hidden' name = 'id' value = '$id' >";
-								echo "<button class='btn-flat' type='submit' name ='action'><i class='material-icons center'>Reservar</i></td></tr>" ;
+								echo "<input type = 'hidden' name = 'id_objeto' value = '$idx' >
+								<button class='btn-flat' type='submit' name ='action'><i class='material-icons center'>Reservar</i></button></form></td></tr>";
 							}
 						}
 						?>
@@ -110,14 +111,6 @@
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
-<script type="text/javascript">
-	function fun_del(value) {
-		
-		$.post("cad_reserv_datashows.html.php", {id:value})
-		alert("Data: "+ value);
-    	window.location.replace("cad_reserv_datashows.html.php");
-		
-	}
-</script>
+
 </body>
 </html>

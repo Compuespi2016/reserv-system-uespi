@@ -1,6 +1,6 @@
             
 <?
-    $id = $_POST['id'];
+    $id_objeto = $_POST['id_objeto'];
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +25,6 @@
 
                 <?php  
                     include('conexao.php');
-                    header("Content-Type: text/html; charset=ISO-8859-1",true);
                     session_start();
                     if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
                     {
@@ -35,7 +34,7 @@
 
                     }
                     $logado = $_SESSION['nome'];
-
+                    $var_login = $_SESSION['login'];
                     ?>
 
                 
@@ -68,21 +67,24 @@
                     <table class = "centered" >
                         <?php 
                         include('conexao.php');
-                        $check  = mysqli_query($con,"SELECT * FROM data_shows WHERE  id ='$id'");
+                        $check  = mysqli_query($con,"SELECT * FROM data_shows WHERE  id ='$id_objeto'");
                         if(mysqli_num_rows($check) == 0){
                             echo "<h3> Não há notebooks cadastrados</h3>";
                         }else{
-                            echo "<tr><td>Marca:</td>";
+                            echo "<tr><td>id_objeto:</td>";
+                            echo "<td>Marca:</td>";
                             echo "<td>Entrada de cabo:</td>";
-                            echo "<td>Lumens:</td>";
+                            echo "<td>Lumens:</td></tr>";
 
                             while($fetch = mysqli_fetch_assoc($check)){
+                                $idx = $fetch['id'];
+                                echo "<tr><td>$idx</td>";
                                 $marca = $fetch['marca'];
-                                echo "<tr><td>$marca</td>";
+                                echo "<td>$marca</td>";
                                 $entrada_cabo = $fetch['entrada_de_cabo'];
                                 echo "<td>$entrada_cabo</td>";
                                 $Lumens = $fetch['lumens'];
-                                echo "<td>$Lumens</td>";
+                                echo "<td>$Lumens</td></tr>";
 
                             }
                         }
@@ -102,15 +104,15 @@
                     <form method="POST" action="cadastro_resev.php" enctype="multipart/form-data">
                         <select name="dia">
                             <option disabled="" selected="">Dia</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
@@ -137,15 +139,15 @@
                         </select>
                             <select name="mes">
                             <option disabled="" selected="">Mês</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
@@ -169,8 +171,17 @@
                             <option value="18-20">18-20</option>
                             <option value="20-22">20-22</option>
                         </select>
+
+                    <input type="hidden" name="matricula" value="<?php echo $_SESSION['login'] ?>" />
+
+                    <input type="hidden" name="id_objeto_reservado" value="<?php echo $id; ?>" />
+
+                    <input type="hidden" name="tipo_reserva" value="2" />                        
+                    
                         <div class="input-control">
+
                             <input type="submit" name="Cadastrar" value="Cadastrar">
+                        
                         </div>
                     </form>
 
