@@ -56,12 +56,10 @@
 						<table>
 							<?php 
 							include('conexao.php');
-							header("Content-Type: text/html; charset=ISO-8859-1",true);
 							$check  = mysqli_query($con,"SELECT * FROM salas");
 							if(mysqli_num_rows($check) == 0){
 								echo "<h3> Não há salas cadastrados</h3>";
 							}else{
-								echo "<tr><td>Id:</td>";
 								echo "<td>Setor:</td>";
 								echo "<td>Num Sala:</td>";
 								echo "<td>Tipo:</td>";
@@ -131,7 +129,15 @@
 				<div class = "container">
 
 					<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
-						<input type="int" name="setor" placeholder="Setor">
+						<select name="setor">
+							<?php $query = $con->query("SELECT id FROM setor"); ?>
+							<option disabled="" selected="">Setor</option>
+							<?php while($reg = $query->fetch_array()) { ?>
+								<option value="<?php echo $reg['id']; ?>">
+									<?php echo $reg['id']; ?>
+								</option>
+							<?php } ?>  
+						</select>
 						<input type="int" name="num_sala" placeholder="Numero da Sala">
 
 						<select name="tipo_de_sala">
@@ -163,16 +169,16 @@
 		</section>
 	</main>
 
-<div id="copyright">
-	&copy; UESPI - 2018 - Todos os direitos reservados
-</div>
-<script type="text/javascript">
-	function fun_del(value) {
-		$.post("delete_sala.php", { id: value });
-		alert("Sala  Excluido com Sucesso");
-		window.location.href='sala.html.php';
-	}
+	<div id="copyright">
+		&copy; UESPI - 2018 - Todos os direitos reservados
+	</div>
+	<script type="text/javascript">
+		function fun_del(value) {
+			$.post("delete_sala.php", { id: value });
+			alert("Sala  Excluido com Sucesso");
+			window.location.href='sala.html.php';
+		}
 
-</script>
+	</script>
 </body>
 </html>
