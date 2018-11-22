@@ -60,6 +60,7 @@
 							if(mysqli_num_rows($check) == 0){
 								echo "<h3> Não há salas cadastrados</h3>";
 							}else{
+								echo "<tr><td>Id:</td>";
 								echo "<td>Setor:</td>";
 								echo "<td>Num Sala:</td>";
 								echo "<td>Tipo:</td>";
