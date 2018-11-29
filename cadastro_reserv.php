@@ -15,8 +15,12 @@ $id_objeto_reservado = $_POST['id_objeto_reservado'];
 $data_atual = date('Y-m-d');
 
 if($data_atual > $data_completa || $turno == NULL){
-
-	echo"<script language='javascript' type='text/javascript'>alert('Data de reserva/turno invalido!');window.location.href='reserv_datashows.html.php'</script>";
+  if($id_user == 5){
+          echo"<script language='javascript' type='text/javascript'>alert('Data de reserva/turno invalido!');window.location.href='pag_proreitoria.html.php'</script>";
+        }elseif (id_user == 2) {
+           echo"<script language='javascript' type='text/javascript'>alert('Data de reserva/turno invalido!');window.location.href='pag_professor.html.php'</script>";
+        }
+	
 	
 }else{
 
@@ -28,27 +32,24 @@ include('conexao.php');
   	if($cont == 0 ){
   		$insert = mysqli_query($con,"INSERT INTO reservas(matricula,data_reserva,id_tipo,turno,id_objeto) VALUES('$id_matricula','$data_completa','$tipo_reserva','$turno','$id_objeto_reservado')"); 
   		if($insert){
-    		echo"<script language='javascript' type='text/javascript'>alert('Reserva realizada com sucesso!');";
         if($id_user == 5){
-          echo"window.location.href='pag_proreitoria.html.php'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Reserva realizada com sucesso!');window.location.href='pag_proreitoria.html.php'</script>";
         }elseif (id_user == 2) {
-           echo"window.location.href='pag_professor.html.php'</script>";
+           echo"<script language='javascript' type='text/javascript'>alert('Reserva realizada com sucesso!');window.location.href='pag_professor.html.php'</script>";
         }
   		}else{
-  			echo"<script language='javascript' type='text/javascript'>alert('Reserva invalida!');";
         if($id_user == 5){
-          echo"window.location.href='pag_proreitoria.html.php'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Reserva invalida!');window.location.href='pag_proreitoria.html.php'</script>";
         }elseif (id_user == 2) {
-           echo"window.location.href='pag_professor.html.php'</script>";
+           echo"<script language='javascript' type='text/javascript'>alert('Reserva invalida!');window.location.href='pag_professor.html.php'</script>";
         }
   		}
 
   	}else{
-  		echo"<script language='javascript' type='text/javascript'>alert('Reserva já existente!');";
       if($id_user == 5){
-          echo"window.location.href='pag_proreitoria.html.php'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Reserva já existente!');window.location.href='pag_proreitoria.html.php'</script>";
         }elseif (id_user == 2) {
-           echo"window.location.href='pag_professor.html.php'</script>";
+           echo"<script language='javascript' type='text/javascript'>alert('Reserva já existente!');window.location.href='pag_professor.html.php'</script>";
         }
 
   }
