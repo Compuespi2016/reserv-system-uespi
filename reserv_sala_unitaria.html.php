@@ -24,7 +24,7 @@
 
 	}
 	$logado = $_SESSION['nome'];
-
+	$tipo_user = $_SESSION['id']
 	?>
 
 	<header id="header" class="page-home">
@@ -40,12 +40,17 @@
 				<nav>
 					<ul>
 						<?php
-						echo "<li><a href='pag_professor.html.php'> $logado </a></li>"
-						?>
-						<li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
-                            <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
-                            <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
-                            <li><a href="#">Minhas reservas</a></li>
+							if($tipo_user == 2){
+	            echo "<li><a href='pag_professor.html.php' class ='active' > $logado </a></li>";
+	                            echo"
+                            <li><a href='reserv_notebooks.html.php'>Reserva de Notebook</a></li>
+                            <li><a href='reserv_datashows.html.php'>Reserva de Data-Show</a></li>";
+	                        }else{
+	            echo "<li><a href='pag_proreitoria.html.php' class ='active' > $logado </a></li>";
+	                        }
+                        ?>
+							<li><a href='reserv_sala_unitaria.html.php'>Reserva de Salas</a></li>
+                            <li><a href="minhas_reservas.html.php">Minhas Reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
 					</ul>
 				</nav>

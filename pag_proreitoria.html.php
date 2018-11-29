@@ -17,7 +17,8 @@
 		unset($_SESSION['login']);
 		unset($_SESSION['senha']);
 		header('location:index.html.php');
-	}
+	}	
+	$logado = $_SESSION['nome']
 
 	?>
 </head>
@@ -34,9 +35,14 @@
 				<div class="col col-8 col-mobile-6">
 					<nav>
 						<ul>
-							<li><a href="pag-proreitoria.html.php" class="active">Pro-Reitoria</a></li>
-							<li><a href="">Resevar Salas</a></li>
-							<li><a href="">Minhas reservas</a></li>
+							<?php
+							echo "<li><a href='pag_proreitoria.html.php' class ='active' > $logado </a></li>";
+
+							?>
+							
+							
+							<li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
+							<li><a href="">Minhas Reservas</a></li>
 							<li><a href="logout.php">Sair</a></li>
 						</ul>
 					</nav>

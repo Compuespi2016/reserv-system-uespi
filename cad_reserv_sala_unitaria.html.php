@@ -1,7 +1,7 @@
             
 <?
     $id_objeto = $_POST['id_objeto'];
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,6 +35,13 @@
 
                     }
                     $logado = $_SESSION['nome'];
+                    $id_tipo_usuario = $_SESSION['id'];
+
+                    $var_destino = 'cadastro_reserv.php';
+
+                    if($id_tipo_usuario = 2){
+                        $var_destino = 'cadastro_pre_reserv.php';
+                    } 
 
                     ?>
 
@@ -43,7 +50,7 @@
                     <nav>
                         <ul>
                             <?php
-                           echo "<li><a href='#' class ='active' > $logado </a></li>" ;
+                           echo "<li><a href='#' class ='active' > $logado</a></li>" ;
                             ?>
                             <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
@@ -133,7 +140,7 @@
                 <h1>EFETUAR RESERVA DE SALA</h1>
                 <div class = "container">
 
-                    <form method="POST" action="cadastro_resev.php" enctype="multipart/form-data">
+                    <form method="POST" action="<?php echo $var_destino;?>" enctype="multipart/form-data">
                         
                         <select name="turno">
                             <option disabled="" selected="">Horario</option>

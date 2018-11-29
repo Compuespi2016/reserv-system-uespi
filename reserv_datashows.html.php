@@ -43,20 +43,12 @@
 							<li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
                             <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
-                            <li><a href="#">Minhas reservas</a></li>
+                            <li><a href="minhas_reservas.html.php">Minhas reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
-
-            <!--
-            <div class="row">
-                <div class="col col-12 title">
-                    <h1>Tabela de Itens</h1>
-                </div>
-            </div>
-        -->
     </div>    
 </header>
 
@@ -74,15 +66,15 @@
 						if(mysqli_num_rows($check) == 0){
 							echo "<h3> Não há datashows cadastrados</h3>";
 						}else{
-							echo "<tr><td>id:</td>";
-							echo "<td>Marca:</td>";
+							
+							echo "<tr><td>Marca:</td>";
 							echo "<td>Entrada do cabo:</td>";
 							echo "<td>Lumens:</td>";
 							while($fetch = mysqli_fetch_assoc($check)){
 								$idx = $fetch['id'];
-                                echo "<tr><td>$idx</td>";
+                                
 								$marca = $fetch['marca'];
-								echo "<td>$marca</td>";
+								echo "<tr><td>$marca</td>";
 								$entercabo = $fetch['entrada_de_cabo'];
 								echo "<td>$entercabo</td>";
 								$lumens = $fetch['lumens'];

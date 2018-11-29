@@ -30,7 +30,7 @@
 
                     }
                     $logado = $_SESSION['nome'];
-
+                    $tipo_user = $_SESSION['id'];
                     ?>
 
                 
@@ -38,12 +38,14 @@
                     <nav>
                         <ul>
                             <?php
-                           echo "<li><a href='#' class ='active' > $logado </a></li>" 
+
+
+                                echo "<li><a href='#' class ='active' > $logado </a></li>" 
                             ?>
                             <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
                             <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
-                            <li><a href="#">Minhas reservas</a></li>
+                            <li><a href="minhas_reservas.html.php">Minhas Reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
                          
                         </ul>

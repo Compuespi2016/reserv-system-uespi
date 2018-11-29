@@ -31,7 +31,10 @@ $result = mysqli_query($con,"SELECT * FROM usuarios WHERE matricula = '$login' a
 			header('location:pag_diretor.html.php');
 		}elseif($id == 2){
 			header('location:pag_professor.html.php');
+		}elseif($id == 5){
+			header('location:pag_proreitoria.html.php');
 		}
+
 		
 	}
 	else{
