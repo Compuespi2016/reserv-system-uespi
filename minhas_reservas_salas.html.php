@@ -22,7 +22,7 @@
 
     }
     $logado = $_SESSION['nome'];
-
+    $tipo_user= $_SESSION['id']
     ?>
     <header id="header" class="page-home">
         <div class="container">
@@ -37,11 +37,17 @@
                     <nav>
                         <ul>
                             <?php
-                            echo "<li><a href='pag_professor.html.php'> $logado </a></li>"
-                            ?>                          
+                            if($tipo_user == 2){
+                echo "<li><a href='pag_professor.html.php' class ='active' > $logado </a></li>";
+                                echo"
+                            <li><a href='reserv_notebooks.html.php'>Reserva de Notebook</a></li>
+                            <li><a href='reserv_datashows.html.php'>Reserva de Data-Show</a></li>";
+                            }else{
+                echo "<li><a href='pag_proreitoria.html.php' class ='active' > $logado </a></li>";
+                            }
+                            ?>                         
                             <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
-                            <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
-                            <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
+                            
                             <li><a href="minhas_reservas.html.php">Minhas reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
                         </ul>
@@ -63,9 +69,14 @@
                         <select onchange="la(this.value)" id="appearance-select">
                           <option disabled="" selected="">Selecione</option>
                           <option value="minhas_reservas_salas.html.php">Salas</option>
-                          <option value="minhas_reservas_notebooks.html.php">Notebooks</option>
-                          <option value="minhas_reservas_datashows.html.php">Datashow</option>
+                          <?php
+                            if($tipo_user==2){
+                                echo"<option value='minhas_reservas_notebooks.html.php'>Notebooks</option>
+                          <option value='minhas_reservas_datashows.html.php'>Datashow</option>";
+
+                            }
                           
+                          ?>
                       </select>   
 
                         <script type="text/javascript">

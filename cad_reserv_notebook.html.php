@@ -105,7 +105,7 @@
         <h1>EFETUAR RESERVA DE NOTEBOOK</h1>
         <div class = "container">
             <div class="row">
-                <form method="POST" action="cadastro_resev.php" enctype="multipart/form-data">
+                <form method="POST" action="cadastro_reserv.php" enctype="multipart/form-data">
                         
                         <select name="turno">
                             <option disabled="" selected="">Horario</option>

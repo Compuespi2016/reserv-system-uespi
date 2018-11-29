@@ -67,8 +67,14 @@
                        <select onchange="la(this.value)" id="appearance-select">
                           <option disabled="" selected="">Selecione</option>
                           <option value="minhas_reservas_salas.html.php">Salas</option>
-                          <option value="minhas_reservas_notebooks.html.php">Notebooks</option>
-                          <option value="minhas_reservas_datashows.html.php">Datashow</option>
+                          <?php
+                            if($tipo_user==2){
+                                echo"<option value='minhas_reservas_notebooks.html.php'>Notebooks</option>
+                          <option value='minhas_reservas_datashows.html.php'>Datashow</option>";
+
+                            }
+                          
+                          ?>
                           
                       </select>  
 

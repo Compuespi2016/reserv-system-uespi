@@ -102,7 +102,7 @@
                 <h1>EFETUAR RESERVA DE DATASHOW</h1>
                 <div class = "container">
 
-                    <form method="POST" action="cadastro_resev.php" enctype="multipart/form-data">
+                    <form method="POST" action="cadastro_reserv.php" enctype="multipart/form-data">
                         
                         <select name="turno">
                             <option disabled="" selected="">Horario</option>
