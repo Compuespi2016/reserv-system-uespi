@@ -2,33 +2,40 @@
 
 
 $id_matricula =$_POST['matricula'];
+
 $data_completa = $_POST['data_completa'];
 
-/*$dia = $_POST['dia'];
+$datada_reserva = 0;
 
-$mes = $_POST['mes'];
-
-$ano = $_POST['ano'];
-*/
 $tipo_reserva = $_POST['tipo_reserva'];
 
-$turno =$_POST['turno'];
+@$turno =$_POST['turno'];
 
 $id_objeto_reservado = $_POST['id_objeto_reservado'];
 
-echo "<p>$id_matricula,$data_completa,$tipo_reserva,$turno,$id_objeto_reservado</p>";
+$data_atual = date('Y-m-d');
+
+if($data_atual > $data_completa || $turno == NULL){
+
+	echo"<script language='javascript' type='text/javascript'>alert('Data de reserva/turno invalido!');window.location.href='reserv_datashows.html.php'</script>";
+	
+}else{
 
 include('conexao.php');
-        	   
-  $insert = mysqli_query($con,"INSERT INTO reservas(matricula,data_reserva,id_tipo,turno,id_objeto) VALUES('$id_matricula','$data_completa','$tipo_reserva','$turno','$id_objeto_reservado')"); 
 
-  if($insert){
-
-    echo"<script language='javascript' type='text/javascript'>alert('Notebook reservado com sucesso!');window.location.href='reserv_datashows.html.php'</script>";
+  	$test = mysqli_query($con,"SELECT * FROM reservas Where data_reserva = '$data_completa' and id_tipo ='$tipo_reserva' and turno = '$turno' and id_objeto ='$id_objeto_reservado'");
+	$cont = mysqli_num_rows($test);	
   
-  }else{
+  	if($cont == 0 ){
+  		$insert = mysqli_query($con,"INSERT INTO reservas(matricula,data_reserva,id_tipo,turno,id_objeto) VALUES('$id_matricula','$data_completa','$tipo_reserva','$turno','$id_objeto_reservado')"); 
+  		if($insert){
+    		echo"<script language='javascript' type='text/javascript'>alert('Reserva realizada com sucesso!');window.location.href='reserv_datashows.html.php'</script>";
+  		}else{
+  			echo"<script language='javascript' type='text/javascript'>alert('Reserva invalida!');window.location.href='reserv_datashows.html.php'</script>";	
+  		}
 
-  	echo"<script language='javascript' type='text/javascript'>alert('Reserva invalida!');window.location.href='reserv_datashows.html.php'</script>";
+  	}else{
+  		echo"<script language='javascript' type='text/javascript'>alert('Reserva já existente!');window.location.href='reserv_datashows.html.php'</script>";
 
   }
-  
+ }

@@ -1,6 +1,6 @@
             
 <?
-    $id = $_POST['id_objeto'];
+    $id_objeto = $_POST['id_objeto'];
 
 ?>
 <!DOCTYPE html>
@@ -62,50 +62,78 @@
         <div class="container">
             <div class="row">
 
-                <h2>NOTEBOOK :</h2>
+                <h2>SALA:</h2>
                 <div class="col col-2"></div>
-                <div class="col col-8">
+                <div class="col col-4">
                     <table class = "centered" >
                         <?php 
                         include('conexao.php');
-                        $check  = mysqli_query($con,"SELECT * FROM notebooks WHERE  id ='$id'");
-                        if(mysqli_num_rows($check) == 0){
-                            echo "<h3> Não há notebooks cadastrados</h3>";
-                        }else{
-                            echo "<tr><td>id_objeto:</td>";
-                            echo "<td>Marca:</td>";
-                            echo "<td>Modelo:</td>";
-                            echo "<td>Polegada:</td>";
-                            echo "<td>SO:</td></tr>";
+                        $check  = mysqli_query($con,"SELECT * FROM salas WHERE  id ='$id_objeto'");
+                            if(mysqli_num_rows($check) == 0){
+                                echo "<h3> Não há salas cadastrados</h3>";
+                            }else{
+                                echo "<tr><td>id:</td>";
+                                echo "<td>Setor:</td>";
+                                echo "<td>Num_Sala:</td>";
+                                echo "<td>Tipo:</td>";
+                                echo "<td>Ar_Cond:</td>";
+                                echo "<td>Projetor:</td>";
+                                echo "<td>Capacidade:</td></tr>";
+                             
+                                
+                                while($fetch = mysqli_fetch_assoc($check)){
+                                    $idx = $fetch['id'];
+                                     echo "<tr><td>$idx</td>";
+                                    $id_setor = $fetch['setor'];
+                                    echo "<td>$id_setor</td>";
+                                    $numero_sala_no_setor = $fetch['numero_sala_no_setor'];
+                                    echo "<td>$numero_sala_no_setor</td>";
+                                    $tipo_de_sala =$fetch['tipo_de_sala'];
+                                    if($tipo_de_sala == 1){
+                                        echo "<td>Aula</td>";
+                                    }else if($tipo_de_sala == 2){
+                                        echo "<td>Laboratorio</td>";
+                                    }else if($tipo_de_sala == 3){
+                                        echo "<td>Auditorio</td>";
+                                    }else{
+                                        echo "<td>Nao definido </td>";
+                                    }
+                                    $ar_condicionado = $fetch['ar_condicionado'];
+                                    if($ar_condicionado == 1){
+                                        echo "<td>Sim</td>";
+                                    }else{
+                                        echo "<td>Não</td>";
+                                    }
+                                    $projetor=$fetch['projetor'];
+                                    if($projetor == 1){
+                                        echo "<td>Sim</td>";
+                                    }else{
+                                        echo "<td>Não</td>";
+                                    }
 
-                            while($fetch = mysqli_fetch_assoc($check)){
-                                $idx = $fetch['id'];
-                                echo "<tr><td>$idx</td>";
-                                $marca = $fetch['marca'];
-                                echo "<td>$marca</td>";
-                                $modelo = $fetch['modelo'];
-                                echo "<td>$modelo</td>";
-                                $polegada = $fetch['polegada'];
-                                echo "<td>$polegada</td>";
-                                $so =$fetch['so'];
-                                echo "<td>$so</td>";
+                                    $capacidade =$fetch['capacidade'];
+                                    echo "<td>$capacidade</td>";
 
+                                   
+                                    
+                                }
                             }
-                        }
-                        ?>
+                            
+
+                            ?>
                     </table>
                 </div>
                 <div class="col col-2"></div>
             </div>
         </div>
     </section>
-        <section class="section section-center">
-        
-
-        <h1>EFETUAR RESERVA DE NOTEBOOK</h1>
-        <div class = "container">
+       <section class="section section-center">
+            
             <div class="row">
-                <form method="POST" action="cadastro_resev.php" enctype="multipart/form-data">
+                <h1>EFETUAR RESERVA DE SALA</h1>
+                <div class = "container">
+
+                    <form method="POST" action="cadastro_resev.php" enctype="multipart/form-data">
                         
                         <select name="turno">
                             <option disabled="" selected="">Horario</option>
@@ -121,7 +149,7 @@
 
                     <input type="hidden" name="id_objeto_reservado" value="<?php echo $idx; ?>" />
 
-                    <input type="hidden" name="tipo_reserva" value="1" />                        
+                    <input type="hidden" name="tipo_reserva" value="0" />                        
                     
                         <div class="input-control">
 
@@ -129,10 +157,10 @@
                         
                         </div>
                     </form>
-            </div>
 
-        </div>
-    </section>
+                </div>
+            </div>
+        </section>
 
     
 

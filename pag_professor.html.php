@@ -40,7 +40,7 @@
                             <?php
                            echo "<li><a href='#' class ='active' > $logado </a></li>" 
                             ?>
-                            <li><a href="#">Reserva de Salas</a></li>
+                            <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
                             <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
                             <li><a href="#">Minhas reservas</a></li>

@@ -14,6 +14,7 @@
 <body>
 	<?php  
 	include('conexao.php');
+	header("Content-Type: text/html; charset=ISO-8859-1",true);
 	session_start();
 	if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
 	{
@@ -41,7 +42,7 @@
 						<?php
 						echo "<li><a href='pag_professor.html.php'> $logado </a></li>"
 						?>
-						<li><a href="#">Reserva de Salas</a></li>
+						<li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
                             <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
                             <li><a href="#">Minhas reservas</a></li>
@@ -82,11 +83,10 @@
 								echo "<td>$polegada</td>";
 								$so =$fetch['so'];
 								echo "<td>$so</td>";
-								$id = $fetch['id'];
+								$idx = $fetch['id'];
 								echo "<td> <form action = 'cad_reserv_notebook.html.php' method = 'POST'>";
-								echo "<input type = 'hidden' name = 'id' value = '$id' >";
-								echo "<button class='btn-flat' type='submit' name ='action'><i class='material-icons center'>Reservar</i></td></tr>" ;
-
+								echo "<input type = 'hidden' name = 'id_objeto' value = '$idx' >
+								<button class='btn-flat' type='submit' name ='action'><i class='material-icons center'>Reservar</i></button></form></td></tr>";
 							}
 						}
 						?>
@@ -110,14 +110,5 @@
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
-<script type="text/javascript">
-	function fun_del(value) {
-		
-		$.post("cad_reserv_notebook.html.php", {id:value})
-		alert("Data: "+ value);
-    	window.location.replace("cad_reserv_notebook.html.php");
-		
-	}
-</script>
 </body>
 </html>

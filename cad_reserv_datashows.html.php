@@ -25,6 +25,7 @@
 
                 <?php  
                     include('conexao.php');
+                    header("Content-Type: text/html; charset=ISO-8859-1",true);
                     session_start();
                     if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
                     {
@@ -112,9 +113,7 @@
                             <option value="18-20">18-20</option>
                             <option value="20-22">20-22</option>
                         </select>
-                        <input type="date" name="data_completa" >
-                            
-                        </input> 
+                        <input type="date" name="data_completa" ></input> 
                     <input type="hidden" name="matricula" value="<?php echo $_SESSION['login'] ?>" />
 
                     <input type="hidden" name="id_objeto_reservado" value="<?php echo $idx; ?>" />

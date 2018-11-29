@@ -13,6 +13,7 @@
 <body>
 	<?php  
 	include('conexao.php');
+	header("Content-Type: text/html; charset=ISO-8859-1",true);
 	session_start();
 	if((!isset($_SESSION['login'])==true)and(!isset($_SESSION['senha'])==true))
 	{
@@ -39,7 +40,7 @@
 							<?php
 							echo "<li><a href='pag_professor.html.php'> $logado </a></li>"
 							?>							
-							<li><a href="#">Reserva de Salas</a></li>
+							<li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
                             <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
                             <li><a href="#">Minhas reservas</a></li>
