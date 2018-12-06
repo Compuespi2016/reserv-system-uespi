@@ -84,6 +84,14 @@
                         echo "<td>Estado:</td>";
 
                         while($fetch = mysqli_fetch_assoc($check)){
+
+                            $id = $fetch['id'];
+                            $checkx  = mysqli_query($con,"SELECT * FROM reservas WHERE id_objeto = '$id' ");
+                            $valor = mysqli_num_rows($checkx);
+
+
+
+
                             $marca = $fetch['marca'];
                             echo "<tr><td>$marca</td>";
                             $modelo = $fetch['modelo'];
@@ -93,10 +101,10 @@
                             $so =$fetch['so'];
                             echo "<td>$so</td>";
                             $estado=$fetch['estado'];
-                            if($estado == 0){
+                            if($valor > 0){
                                 echo "<td>reservado</td>";
                             }else{
-                                echo "<td>indisponivel</td>";
+                                echo "<td>disponivel</td>";
                             }
 
                         }
