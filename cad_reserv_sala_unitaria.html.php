@@ -62,7 +62,7 @@
                         ?>
                             <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
                            
-                            <li><a href="#">Minhas reservas</a></li>
+                            <li><a href="minhas_reservas.html.php">Minhas reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
                          
                         </ul>
