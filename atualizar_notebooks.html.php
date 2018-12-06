@@ -44,6 +44,7 @@
 						?>
 						<li><a href="notebooks.html.php" class="active">Cadastro Notebook</a></li>
 						<li><a href="data_shows.html.php">Cadastro Data-Show</a></li>
+						<li><a href="logout.php">Sair</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -52,55 +53,44 @@
 </header>
 
 <main>
-	<section class="section section-center">
-		<div class="container">
-			<div class="row">
-
 	
-
 	<section class="section section-center">
-		<h2>NOTEBOOKS</h2>
-				<div class="col col-2"></div>
-				<div class="col col-8">
-					<table class = "centered" >
-						<?php
-						$id = $_POST['id'];
-
-						include('conexao.php');
-						$check  = mysqli_query($con,"SELECT * FROM notebooks where id = $id");
-						if(mysqli_num_rows($check) == 0){
-							echo "<h3> Não encontrado</h3>";
-						}else{
-							echo "<tr><td>Marca:</td>";
-							echo "<td>Modelo:</td>";
-							echo "<td>Polegada:</td>";
-							echo "<td>SO:</td></tr>";
-
-							while($fetch = mysqli_fetch_assoc($check)){
-								$marca = $fetch['marca'];
-								echo "<tr><td>$marca</td>";
-								$modelo = $fetch['modelo'];
-								echo "<td>$modelo</td>";
-								$polegada = $fetch['polegada'];
-								echo "<td>$polegada</td>";
-								$so =$fetch['so'];
-								echo "<td>$so</td>";
-
-							}
-						}
-						?>
-					</table>
-				</div>
-
+			<h1>Atualiza Dados Notebooks</h1>
 		<div class = "container">
+			<?php 
+						header("Content-Type: text/html; charset=ISO-8859-1",true);
+						$id_recebido = $_POST['id_alterar'];
+						$check  = mysqli_query($con,"SELECT * FROM notebooks where id = '$id_recebido'");
+						if(mysqli_num_rows($check) == 0){
+							echo "<h3> Não há notebooks com esse ID</h3>";
+						}else{
+
+							$fetch = mysqli_fetch_assoc($check);
+							
+						}
+			?>
 			<div class="row">
-				<form method="POST" action="atualizar_notebooks.php" enctype="multipart/form-data">
-					<input type="text" name="marca" placeholder="Marca">
-					<input type="text" name="modelo" placeholder="Modelo">
-					<input type="int" name="polegada" placeholder="Tamanho tela(polegadas)">
-					<input type="text" name="so" placeholder="SO(Sistema Operacional)">
+				<form method="POST" action="atualiza_notebooks.php" enctype="multipart/form-data">
+					<select name="marca">
+						<option value="<?php echo $fetch['marca'];?>"> <?php echo $fetch['marca'];?> </option>
+						<option value="Dell">Dell</option>
+						<option value="Asus">Asus</option>
+						<option value="Apple">Apple</option>
+						<option value="Samsumg">Samsung</option>
+					</select>
+					<input type="text" name="modelo" placeholder="Modelo" value="<?php echo $fetch['modelo'];?>">
+					<input type="int" name="polegada" placeholder="Tamanho tela(polegadas)" value="<?php echo $fetch['polegada'];?>">
+					<select name="so">
+						<option value="<?php echo $fetch['so'];?>"> <?php echo $fetch['so'];?> </option>
+						<option value="MacOS">MacOS</option>
+						<option value="Windows">Windows</option>
+						<option value="Ubuntu">Ubuntu</option>
+						<option value="Linux Derivados">Linux Derivados</option>
+					</select>
 					<div class="input-control">
-						<input type="submit" name="Cadastrar" value="Cadastrar">
+						<input type="hidden" name="id_alterar" value="<?php echo $fetch['id']; ?>" />
+						
+						<input type="submit" name="Alterar" value="Alterar">
 					</div>
 				</form>
 			</div>
@@ -113,14 +103,6 @@
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
 
-<script type="text/javascript">
-	function fun_atualizar(value) {
-		$.post("delete_notebook.php", { id: value });
-		alert("notebook  excluido com Sucesso");
-		window.location.href='notebooks.html.php';
-	}
-
-</script>
 
 </body>
 </html>

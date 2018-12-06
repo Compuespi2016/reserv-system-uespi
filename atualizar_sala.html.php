@@ -47,125 +47,91 @@
 	</header>
 
 	<main>
+		
+
 		<section class="section section-center">
-			<div class="container">
-				<div class="row">
-					<h2>SALAS</h2>
-					
-					<div class="col col-12" align="center">
-						<table>
-							<?php 
+			<?php 
 							include('conexao.php');
 							$check  = mysqli_query($con,"SELECT * FROM salas");
 							if(mysqli_num_rows($check) == 0){
 								echo "<h3> Não há salas cadastrados</h3>";
 							}else{
-								echo "<tr><td>Id:</td>";
-								echo "<td>Setor:</td>";
-								echo "<td>Num Sala:</td>";
-								echo "<td>Tipo:</td>";
-								echo "<td>Ar-Cond:</td>";
-								echo "<td>Projetor:</td>";
-								echo "<td>Capacidade:</td>";
-								echo "<td>Alterar</td>";
-								echo "<td>Excluir</td></tr>";
-								while($fetch = mysqli_fetch_assoc($check)){
-									$id_sala = $fetch['id'];
-									echo "<tr><td>$id_sala</td>";
-									$id_setor = $fetch['setor'];
-									echo "<td>$id_setor</td>";
-									$numero_sala_no_setor = $fetch['numero_sala_no_setor'];
-									echo "<td>$numero_sala_no_setor</td>";
-									$tipo_de_sala =$fetch['tipo_de_sala'];
-									if($tipo_de_sala == 1){
-										echo "<td>Aula</td>";
-									}else if($tipo_de_sala == 2){
-										echo "<td>Laboratorio</td>";
-									}else if($tipo_de_sala == 3){
-										echo "<td>Auditorio</td>";
-									}else{
-										echo "<td>Nao definido </td>";
-									}
-									$ar_condicionado = $fetch['ar_condicionado'];
-									if($ar_condicionado == 1){
-										echo "<td>Sim</td>";
-									}else{
-										echo "<td>Não</td>";
-									}
-									$projetor=$fetch['projetor'];
-									if($projetor == 1){
-										echo "<td>Sim</td>";
-									}else{
-										echo "<td>Não</td>";
-									}
-
-									$capacidade =$fetch['capacidade'];
-									echo "<td>$capacidade</td>";
-
-									echo "
-									<td>
-										<form method='POST' action='atualizar_sala.html.php' enctype='multipart/form-data'>
-										<input type='hidden' name='id_alterar' value='$id_sala;' />
-										<input type='submit' name='Alterar' value='Alterar'>
-										</form>
-									</td>";
-									
-									$id = $fetch['id'];
-									echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
-									<i class='material-icons center'>Excluir</i>
-									</button></td></tr>";
-								}
+								$fetch = mysqli_fetch_assoc($check);
 							}
-							
-
+	
 							?>
-						</table>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<br>
-
-		<section class="section section-center">
-			
 			<div class="row">
-				<h1>Cadastro de Sala</h1>
+				<h1>Atualizar Dados de Sala</h1>
 				<div class = "container">
 
-					<form method="POST" action="cadastro_sala.php" enctype="multipart/form-data">
+					<form method="POST" action="atualiza_sala.php" enctype="multipart/form-data">
 						<select name="setor">
 							<?php $query = $con->query("SELECT id FROM setor"); ?>
-							<option disabled="" selected="">Setor</option>
+
+							<option value = "<?php echo $fetch['setor']; ?>"><?php echo $fetch['setor']; ?></option>
+
 							<?php while($reg = $query->fetch_array()) { ?>
 								<option value="<?php echo $reg['id']; ?>">
 									<?php echo $reg['id']; ?>
 								</option>
 							<?php } ?>  
+
 						</select>
-						<input type="int" name="num_sala" placeholder="Numero da Sala">
+
+						<input type="int" name="num_sala" placeholder="Numero da Sala" value="<?php echo $fetch['numero_sala_no_setor'];?>">
 
 						<select name="tipo_de_sala">
-							<option disabled="" selected="">Tipo de Sala</option>
+							<option value="<?php echo $fetch['tipo_de_sala'];?>">
+								<?php
+									if($fetch['tipo_de_sala']== 1){
+										echo "Aulas";
+									}elseif($fetch['tipo_de_sala']== 2){
+										echo "Laboratorio";
+									}elseif($fetch['tipo_de_sala']== 3){
+										echo "Auditorio";
+									}else{
+										echo "Outro";
+									}
+								?>		
+							</option>
 							<option value="1" >Aulas</option>
 							<option value="2" >Laboratorio</option>
 							<option value="3" >Auditorio</option>
 							<option value="0" >Outro</option>
 						</select>
 
-						<input type="int" name="capacidade" placeholder="capacidade">
+						<input type="int" name="capacidade" placeholder="capacidade" value="<?php echo $fetch['capacidade'];?>">
+
 						<select name="ar_condicionado">
-							<option disabled="" selected="">Ar Condicionado</option>
+							<option value="<?php echo $fetch['ar_condicionado'];?>">
+								<?php
+									if($fetch['ar_condicionado']== 0){
+										echo "Não";
+									}else{
+										echo "Sim";
+									}
+								?>		
+							</option>
 							<option value="1" >Sim</option>
 							<option value="0" >Não</option>
 						</select>
 						<select name="projetor">
-							<option disabled="" selected="">Projetor</option>
+							
+							<option value="<?php echo $fetch['projetor'];?>">
+								<?php
+									if($fetch['projetor']== 0){
+										echo "Não";
+									}else{
+										echo "Sim";
+									}
+								?>		
+							</option>
 							<option value="1" >Sim</option>
 							<option value="0" >Não</option>
 						</select>
+						<input type="hidden" name="id_alterar" value="<?php echo $fetch['id']; ?>" />
 						<div class="input-control">
-							<input type="submit" name="Cadastrar" value="Cadastrar">
+							<input type="submit" name="Alterar" value="Alterar">
 						</div>
 					</form>
 

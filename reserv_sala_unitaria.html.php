@@ -24,7 +24,11 @@
 
 	}
 	$logado = $_SESSION['nome'];
-	$tipo_user = $_SESSION['id']
+	
+	$tipo_user = $_SESSION['id'];
+	
+	$matricula = $_SESSION['login'];
+	
 	?>
 
 	<header id="header" class="page-home">
@@ -40,6 +44,7 @@
 				<nav>
 					<ul>
 						<?php
+							include('conexao.php');
 							if($tipo_user == 2){
 	            echo "<li><a href='pag_professor.html.php' class ='active' > $logado </a></li>";
 	                            echo"

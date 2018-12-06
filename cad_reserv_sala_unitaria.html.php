@@ -35,11 +35,12 @@
 
                     }
                     $logado = $_SESSION['nome'];
-                    $tipo_user = $_SESSION['id'];
+                    $matricula = $_SESSION['login'];
+                    $id_user= $_SESSION['id'];
 
                     $var_destino = 'cadastro_reserv.php';
 
-                    if($tipo_user == 2){
+                    if($id_user == 2){
                         $var_destino = 'cadastro_pre_reserv.php';
                     } 
 
@@ -50,13 +51,13 @@
                     <nav>
                         <ul>
                             <?php
-                            if($tipo_user == 2){
+                            if($id_user == 2){
                 echo "<li><a href='pag_professor.html.php' class ='active' > $logado </a></li>";
                                 echo"
                             <li><a href='reserv_notebooks.html.php'>Reserva de Notebook</a></li>
                             <li><a href='reserv_datashows.html.php'>Reserva de Data-Show</a></li>";
                             }else{
-                echo "<li><a href='pag_proreitoria.html.php' class ='active' > $logado </a></li>";
+                echo "<li><a href='pag_proreitoria.html.php' class ='active' > $logado,$matricula </a></li>";
                             }
                         ?>
                             <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
@@ -158,8 +159,8 @@
                             <option value="20-22">20-22</option>
                         </select>
                     <input type="date" name="data_completa" ></input> 
-                    <input type="hidden" name=" id_user" value="<?php echo $id_tipo_usuario; ?>" />
-                    <input type="hidden" name="matricula" value="<?php echo $logado ?>" />
+                    <input type="hidden" name="id_user" value="<?php echo $id_user; ?>" />
+                    <input type="hidden" name="matricula" value="<?php echo $matricula; ?>" />
                     <input type="hidden" name="id_objeto_reservado" value="<?php echo $idx; ?>" />
 
                     <input type="hidden" name="tipo_reserva" value="0" />                        

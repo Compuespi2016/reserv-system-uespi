@@ -36,6 +36,7 @@
                     }
                     $logado = $_SESSION['nome'];
                     $var_login = $_SESSION['login'];
+                    $id_user= $_SESSION['id'];
                     ?>
 
                 
@@ -117,6 +118,7 @@
                     <input type="hidden" name="matricula" value="<?php echo $_SESSION['login'] ?>" />
 
                     <input type="hidden" name="id_objeto_reservado" value="<?php echo $idx; ?>" />
+                    <input type="hidden" name="id_user" value="<?php echo $id_user; ?>" />
 
                     <input type="hidden" name="tipo_reserva" value="2" />                        
                     

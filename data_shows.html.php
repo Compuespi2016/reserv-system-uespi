@@ -7,6 +7,7 @@
 	<title>Sistema de reservas - Cadastro de datashows</title>
 	<link rel="stylesheet" href="css/pages/home.css">
 	<link rel="stylesheet" media="Screen and (max-width: 700px)" href="css/mobile.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 
 </head>
@@ -75,6 +76,8 @@
 							echo "<tr><td>Marca:</td>";
 							echo "<td>Entrada do cabo:</td>";
 							echo "<td>Lumens:</td>";
+							echo "<td>Alterar:</td>";
+							echo "<td>Excluir:</td></tr>";
 							while($fetch = mysqli_fetch_assoc($check)){
 								$marca = $fetch['marca'];
 								echo "<tr><td>$marca</td>";
@@ -82,6 +85,21 @@
 								echo "<td>$entercabo</td>";
 								$lumens = $fetch['lumens'];
 								echo "<td>$lumens</td>";
+								$id = $fetch['id'];
+								echo "
+								<td>
+									<form method='POST' action='atualizar_data_shows.html.php' enctype='multipart/form-data'>
+									<input type='hidden' name='id_alterar' value= '$id;' />
+									
+									<input type='submit' name='Alterar' value='Alterar'>
+									
+								</form>
+								</td>";
+									
+								
+								echo "<td><button class='btn-flat' value='$id' onclick='fun_del(this.value)' name='bt1'>
+									<i class='material-icons center'>Excluir</i>
+									</button></td></tr>";
 							}
 						}
 						?>
@@ -118,6 +136,13 @@
 <div id="copyright">
 	&copy; UESPI - 2018 - Todos os direitos reservados
 </div>
+	<script type="text/javascript">
+		function fun_del(value) {
+			$.post("delete_data_shows.php", { id: value });
+			alert("Data Excluido com Sucesso");
+			window.location.href='data_shows.html.php';
+		}
 
+	</script>
 </body>
 </html>

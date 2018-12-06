@@ -40,10 +40,11 @@
 							<?php
 							echo "<li><a href='pag_professor.html.php'> $logado </a></li>"
 							?>							
-							<li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
+							
                             <li><a href="reserv_notebooks.html.php">Reserva de Notebook</a></li>
                             <li><a href="reserv_datashows.html.php">Reserva de Data-Show</a></li>
-                            <li><a href="minhas_reservas.html.php">Minhas reservas</a></li>
+                            <li><a href="reserv_sala_unitaria.html.php">Reserva de Salas</a></li>
+                            <li><a href="minhas_reservas.html.php">Minhas Reservas</a></li>
                             <li><a href="index.html.php">Sair</a></li>
 						</ul>
 					</nav>
